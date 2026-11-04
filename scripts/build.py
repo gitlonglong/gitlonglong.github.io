@@ -89,7 +89,6 @@ for group_id, title in [('lead', 'First / Co-first Author'), ('other', 'Other Co
     groups.append(f'<section class="authorship-group" data-authorship-group="{group_id}" aria-labelledby="authorship-{group_id}"><div class="authorship-heading"><h3 id="authorship-{group_id}">{title}</h3><span class="authorship-count">{len(group_papers)} papers</span></div>' + ''.join(years) + '</section>')
 papers_by_id = {p['id']: p for p in PAPERS}
 news_rows = []
-undated_news_rows = []
 has_notification_dates = False
 for item in sorted(NEWS, key=lambda item: item['date'] or '', reverse=True):
     if item['date']:
@@ -109,11 +108,9 @@ for item in sorted(NEWS, key=lambda item: item['date'] or '', reverse=True):
         marker = '<sup><a href="#news-date-note" aria-label="Month based on the official conference notification schedule">†</a></sup>' if is_notification_date else ''
         news_rows.append(f'<li class="news-item" data-paper-ids="{ids}"><span class="news-date"><time datetime="{item["date"]}">[{item["date"]}]</time>{marker}</span><span>{sentence}</span></li>')
     else:
-        undated_news_rows.append(f'<li class="news-item" data-paper-ids="{ids}">{sentence}</li>')
+        news_rows.append(f'<li class="news-item" data-paper-ids="{ids}"><span class="news-date" aria-hidden="true"></span><span>{sentence}</span></li>')
 news_note = '<p class="news-note" id="news-date-note">† Month follows the conference’s official notification schedule.</p>' if has_notification_dates else ''
-undated_count = sum(len(item['paperIds']) for item in NEWS if not item['date'])
-more_news = ('<details class="more-news"><summary>More acceptances (' + str(undated_count) + ' papers)</summary><p class="news-note">Acceptance months are not listed for these entries.</p><ul class="undated-news">' + ''.join(undated_news_rows) + '</ul></details>') if undated_news_rows else ''
-news_html = '<section class="news" id="news" aria-labelledby="news-title"><h2 id="news-title">News</h2><ul class="news-list">' + ''.join(news_rows) + '</ul>' + news_note + more_news + '</section>' if NEWS else ''
+news_html = '<section class="news" id="news" aria-labelledby="news-title"><h2 id="news-title">News</h2><ul class="news-list">' + ''.join(news_rows) + '</ul>' + news_note + '</section>' if NEWS else ''
 news_nav = '<a href="#news">News</a>' if NEWS else ''
 links = ''
 if PROFILE.get('email'):

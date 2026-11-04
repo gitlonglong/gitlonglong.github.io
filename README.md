@@ -61,9 +61,9 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory dist
 
 新增论文时编辑 `data/publications.json`，然后运行 `python3 scripts/build.py` 和 `python3 scripts/check.py`。如重新同步 Scholar，请同时更新快照；检查脚本会防止误删已收录的 Scholar 条目。
 
-Publications 前的 **News** 来自 `data/news.json`，目前覆盖全部 14 篇已接收论文，不把 3 篇纯预印本写为已接收。每项包含接收月份 `date`（`YYYY-MM` 或 `null`）、关联论文 `paperIds`、显示简称 `labels`、会议／期刊 `venue` 和日期依据 `sources`、`dateBasis`。同月同会议的论文可以合为一条动态。
+Publications 前的 **News** 来自 `data/news.json`，按本人选择展示 12 篇已接收论文，不把纯预印本写为已接收。每项包含接收月份 `date`（`YYYY-MM` 或 `null`）、关联论文 `paperIds`、显示简称 `labels`、会议／期刊 `venue` 和日期依据 `sources`、`dateBasis`。同月同会议的论文可以合为一条动态。
 
-有作者公告或出版社接收记录的月份直接显示；根据官方会议通知日期整理的月份标记 `†`，并提供说明。尚未查到月份的 6 篇期刊论文列在可展开的“More acceptances”中，不以出版日期或 arXiv 上传日期代替接收日期。收到本人确认的日期后可填写 `date` 并更新依据。
+有作者公告或出版社接收记录的月份直接显示；根据官方会议通知日期整理的月份标记 `†`，并提供说明。ATD、FSA、PGNet 和 TANet 直接列在同一 News 列表中，未核实的月份留空；LLKNet 和 MDMCR 仅保留在 Publications 中。不以出版日期或 arXiv 上传日期代替接收日期。收到本人确认的日期后可填写 `date` 并更新依据。
 
 ## BibTeX 与来源
 

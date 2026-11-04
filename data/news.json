@@ -134,22 +134,6 @@
   {
     "date": null,
     "paperIds": [
-      "llknet"
-    ],
-    "venue": "Engineering Applications of Artificial Intelligence",
-    "labels": {
-      "llknet": "LLKNet"
-    },
-    "sources": [
-      "https://doi.org/10.1016/j.engappai.2025.111979",
-      "https://www.sciencedirect.com/science/article/pii/S0952197625019876"
-    ],
-    "evidenceNote": "Publisher-registered DOI establishes journal publication, but no reliable acceptance date was retrieved. Do not reuse the online or issue publication date as acceptance. Method acronym verified in the publisher abstract.",
-    "dateBasis": "unknown"
-  },
-  {
-    "date": null,
-    "paperIds": [
       "pgnet"
     ],
     "venue": "IEEE TGRS",
@@ -161,22 +145,6 @@
       "https://cs.gzu.edu.cn/_t2886/2025/0607/c16275a251964/page.htm"
     ],
     "evidenceNote": "Publisher-registered DOI establishes journal publication, but no reliable acceptance date was retrieved. Do not reuse the first-publication date as acceptance. Method acronym verified in the authors’ institution announcement dated 7 June 2025, which announces publication, not the acceptance date.",
-    "dateBasis": "unknown"
-  },
-  {
-    "date": null,
-    "paperIds": [
-      "mdmcr"
-    ],
-    "venue": "Knowledge-Based Systems",
-    "labels": {
-      "mdmcr": "MDMCR"
-    },
-    "sources": [
-      "https://doi.org/10.1016/j.knosys.2024.112032",
-      "https://www.sciencedirect.com/science/article/pii/S095070512400666X"
-    ],
-    "evidenceNote": "Publisher-registered DOI establishes journal publication, but no reliable acceptance date was retrieved. Do not reuse the publication date as acceptance. Method acronym verified in the publisher abstract.",
     "dateBasis": "unknown"
   },
   {
