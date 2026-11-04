@@ -1,0 +1,211 @@
+{
+  "date": "2026-11-04",
+  "publicationCount": 17,
+  "policy": "Final publisher/conference metadata takes precedence over preprints. Fields unavailable in official records are omitted. Existing citation keys are preserved.",
+  "entries": [
+    {
+      "id": "idesplat",
+      "status": "verified",
+      "sources": [
+        "https://openaccess.thecvf.com/content/CVPR2026/html/Long_IDESplat_Iterative_Depth_Probability_Estimation_for_Generalizable_3D_Gaussian_Splatting_CVPR_2026_paper.html"
+      ],
+      "notes": [
+        "Title, full author names/order, final publication venue and year match the official proceedings. Bibliography title is brace-protected to preserve acronyms and capitalization. Existing citation key is preserved.",
+        "Use final CVF proceedings citation and official page URL rather than an arXiv-only URL; normalize page range to BibTeX double hyphens.",
+        "No exact IEEE DOI record was found in Crossref, and the official CVF BibTeX does not supply a DOI. DOI intentionally omitted rather than guessed."
+      ]
+    },
+    {
+      "id": "rdvq",
+      "status": "verified",
+      "sources": [
+        "https://openaccess.thecvf.com/content/CVPR2026/html/Jiang_Differentiable_Vector_Quantization_for_Rate-Distortion_Optimization_of_Generative_Image_Compression_CVPR_2026_paper.html"
+      ],
+      "notes": [
+        "Title, full author names/order, final publication venue and year match the official proceedings. Bibliography title is brace-protected to preserve acronyms and capitalization. Existing citation key is preserved.",
+        "Use final CVF proceedings citation and official page URL rather than an arXiv-only URL; normalize page range to BibTeX double hyphens.",
+        "No exact IEEE DOI record was found in Crossref, and the official CVF BibTeX does not supply a DOI. DOI intentionally omitted rather than guessed."
+      ]
+    },
+    {
+      "id": "iet",
+      "status": "verified",
+      "sources": [
+        "https://link.springer.com/chapter/10.1007/978-3-032-37467-7_1",
+        "https://citation-needed.springer.com/v2/references/10.1007/978-3-032-37467-7_1?format=bibtex&flavour=citation",
+        "https://api.crossref.org/works/10.1007/978-3-032-37467-7_1"
+      ],
+      "notes": [
+        "Title, full author names/order, final publication venue and year match the official proceedings. Bibliography title is brace-protected to preserve acronyms and capitalization. Existing citation key is preserved.",
+        "Replace generic European Conference on Computer Vision booktitle with the actual Springer edited proceedings title; add verified editors, LNCS volume, pages, publisher, ISBN and DOI. Abstract omitted from the citation export."
+      ]
+    },
+    {
+      "id": "mvar",
+      "status": "verified",
+      "sources": [
+        "https://proceedings.iclr.cc/paper_files/paper/2026/hash/37c6d0bc4d2917dcbea693b18504bd87-Abstract-Conference.html",
+        "https://proceedings.iclr.cc/paper_files/paper/8597-/bibtex"
+      ],
+      "notes": [
+        "Title, full author names/order, final publication venue and year match the official proceedings. Bibliography title is brace-protected to preserve acronyms and capitalization. Existing citation key is preserved.",
+        "Official ICLR BibTeX provides pages, volume, and editors absent from the previous citation. No DOI is supplied by the proceedings."
+      ]
+    },
+    {
+      "id": "tvqrap",
+      "status": "verified",
+      "sources": [
+        "https://proceedings.iclr.cc/paper_files/paper/2026/hash/67c15da4a9340140c60783d9a175fd3f-Abstract-Conference.html",
+        "https://proceedings.iclr.cc/paper_files/paper/7288-/bibtex"
+      ],
+      "notes": [
+        "Title, full author names/order, final publication venue and year match the official proceedings. Bibliography title is brace-protected to preserve acronyms and capitalization. Existing citation key is preserved.",
+        "Official ICLR BibTeX provides pages, volume, and editors absent from the previous citation. No DOI is supplied by the proceedings."
+      ]
+    },
+    {
+      "id": "pft",
+      "status": "verified",
+      "sources": [
+        "https://openaccess.thecvf.com/content/CVPR2025/html/Long_Progressive_Focused_Transformer_for_Single_Image_Super-Resolution_CVPR_2025_paper.html",
+        "https://api.crossref.org/works/10.1109/cvpr52734.2025.00218"
+      ],
+      "notes": [
+        "Title, full author names/order, final publication venue and year match the official proceedings. Bibliography title is brace-protected to preserve acronyms and capitalization. Existing citation key is preserved.",
+        "Use final CVF proceedings citation and official page URL rather than an arXiv-only URL; normalize page range to BibTeX double hyphens."
+      ]
+    },
+    {
+      "id": "mocha",
+      "status": "verified",
+      "sources": [
+        "https://openaccess.thecvf.com/content/CVPR2024/html/Chen_MoCha-Stereo_Motif_Channel_Attention_Network_for_Stereo_Matching_CVPR_2024_paper.html",
+        "https://api.crossref.org/works/10.1109/cvpr52733.2024.02623"
+      ],
+      "notes": [
+        "Title, full author names/order, final publication venue and year match the official proceedings. Bibliography title is brace-protected to preserve acronyms and capitalization. Existing citation key is preserved.",
+        "Use final CVF proceedings citation and official page URL rather than an arXiv-only URL; normalize page range to BibTeX double hyphens."
+      ]
+    },
+    {
+      "id": "pftv2",
+      "status": "verified",
+      "sources": [
+        "https://api.crossref.org/works/10.1007/s11263-026-03053-1",
+        "https://api.crossref.org/works/10.1007/s11263-026-03053-1/transform/application/x-bibtex",
+        "https://doi.org/10.1007/s11263-026-03053-1",
+        "https://link.springer.com/article/10.1007/s11263-026-03053-1",
+        "https://citation-needed.springer.com/v2/references/10.1007/s11263-026-03053-1?format=bibtex&flavour=citation"
+      ],
+      "notes": [
+        "Confirmed volume 134, issue 10, year 2026 and all authors. Springer official BibTeX explicitly uses pages=\"458\" for article number 458; keep this standard publisher export convention, not an invented page range. Crossref transform omits that article number, so Springer export takes precedence."
+      ]
+    },
+    {
+      "id": "atd",
+      "status": "verified",
+      "sources": [
+        "https://api.crossref.org/works/10.1109/tpami.2026.3669974",
+        "https://api.crossref.org/works/10.1109/tpami.2026.3669974/transform/application/x-bibtex",
+        "https://doi.org/10.1109/TPAMI.2026.3669974"
+      ],
+      "notes": [
+        "Added final journal DOI 10.1109/TPAMI.2026.3669974, volume 48, number 7, pages 8018--8033. Replaced arXiv-only citation URL with journal DOI. Title capitalization now matches the final IEEE record."
+      ]
+    },
+    {
+      "id": "fsa",
+      "status": "verified",
+      "sources": [
+        "https://api.crossref.org/works/10.1016/j.patcog.2025.111899",
+        "https://api.crossref.org/works/10.1016/j.patcog.2025.111899/transform/application/x-bibtex",
+        "https://doi.org/10.1016/j.patcog.2025.111899"
+      ],
+      "notes": [
+        "Confirmed final issue year 2026 (volume 169, January), not online-first 2025. Title capitalization corrected to the publisher-registered final title. 111899 is the article number; retained in pages as the official Crossref BibTeX export does."
+      ]
+    },
+    {
+      "id": "llknet",
+      "status": "verified",
+      "sources": [
+        "https://api.crossref.org/works/10.1016/j.engappai.2025.111979",
+        "https://api.crossref.org/works/10.1016/j.engappai.2025.111979/transform/application/x-bibtex",
+        "https://doi.org/10.1016/j.engappai.2025.111979"
+      ],
+      "notes": [
+        "Rechecked the suspicious year: publisher-registered record confirms November 2025, volume 160, article 111979. Existing year 2025 is correct. Authors and DOI match."
+      ]
+    },
+    {
+      "id": "pgnet",
+      "status": "verified",
+      "sources": [
+        "https://api.crossref.org/works/10.1109/tgrs.2025.3571066",
+        "https://api.crossref.org/works/10.1109/tgrs.2025.3571066/transform/application/x-bibtex",
+        "https://doi.org/10.1109/TGRS.2025.3571066"
+      ],
+      "notes": [
+        "Corrected exact title from Prior Information Guided to Prior Information-Guided. Added volume 63 and pages 1--16 from IEEE-registered metadata and official Crossref BibTeX export."
+      ]
+    },
+    {
+      "id": "mdmcr",
+      "status": "verified",
+      "sources": [
+        "https://api.crossref.org/works/10.1016/j.knosys.2024.112032",
+        "https://api.crossref.org/works/10.1016/j.knosys.2024.112032/transform/application/x-bibtex",
+        "https://doi.org/10.1016/j.knosys.2024.112032"
+      ],
+      "notes": [
+        "Corrected title capitalization to Multi-Dimensional Manifolds Consistency Regularization as deposited by Elsevier. Confirmed volume 299, year 2024, article 112032 and all authors."
+      ]
+    },
+    {
+      "id": "tanet",
+      "status": "verified",
+      "sources": [
+        "https://api.crossref.org/works/10.1109/tgrs.2023.3276081",
+        "https://api.crossref.org/works/10.1109/tgrs.2023.3276081/transform/application/x-bibtex",
+        "https://doi.org/10.1109/TGRS.2023.3276081"
+      ],
+      "notes": [
+        "Added volume 61 and pages 1--12; citation points to the formal journal DOI instead of the arXiv upload in 2025. Correct journal year remains 2023."
+      ]
+    },
+    {
+      "id": "pixsgr",
+      "status": "verified",
+      "sources": [
+        "https://arxiv.org/abs/2609.00798",
+        "https://arxiv.org/bibtex/2609.00798"
+      ],
+      "notes": [
+        "Matched title, all authors and order, year, eprint and subject against current official arXiv metadata and BibTeX export. No published venue is claimed. Existing citation key preserved; title case protected."
+      ]
+    },
+    {
+      "id": "fdloss",
+      "status": "verified",
+      "sources": [
+        "https://arxiv.org/abs/2608.00562",
+        "https://arxiv.org/bibtex/2608.00562"
+      ],
+      "notes": [
+        "Matched title, all authors and order, year, eprint and subject against current official arXiv metadata and BibTeX export. No published venue is claimed. Existing citation key preserved; title case protected."
+      ]
+    },
+    {
+      "id": "lrtivsr",
+      "status": "verified",
+      "sources": [
+        "https://arxiv.org/abs/2505.02159",
+        "https://arxiv.org/bibtex/2505.02159"
+      ],
+      "notes": [
+        "Matched title, all authors and order, year, eprint and subject against current official arXiv metadata and BibTeX export. No published venue is claimed. Existing citation key preserved; title case protected."
+      ]
+    }
+  ]
+}

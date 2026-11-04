@@ -15,7 +15,7 @@ html = (ROOT / 'dist/index.html').read_text()
 html = html.replace('<link rel="stylesheet" href="assets/site.css">', '<style>' + (ROOT / 'dist/assets/site.css').read_text() + '</style>')
 html = html.replace('<script src="assets/site.js" defer></script>', '')
 html = html.replace('</body>', '<script>' + (ROOT / 'dist/assets/site.js').read_text() + '</script></body>')
-for ref in set(re.findall(r'(?:src|href)="(assets/[^\"]+)"', html)):
+for ref in set(re.findall(r'(?:src|href)="(assets/[^\"]+|publications\.bib)"', html)):
     path = ROOT / 'dist' / ref
     mime = mimetypes.guess_type(path)[0] or 'application/octet-stream'
     data = base64.b64encode(path.read_bytes()).decode()

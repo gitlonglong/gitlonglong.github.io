@@ -4,6 +4,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlparse, unquote
 import json
+import re
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,8 +48,12 @@ if snapshot_path.exists():
     snapshot = json.loads(snapshot_path.read_text())
     entries = json.loads((ROOT / 'data/publications.json').read_text())
     expected = {p['scholarCitationId'] for p in snapshot['publications']}
+    exclusions = json.loads((ROOT / 'data/publication-exclusions.json').read_text())
+    excluded = {p['scholarCitationId'] for p in exclusions}
     actual = {p.get('scholarCitationId') for p in entries}
-    assert expected.issubset(actual), 'Some Scholar publications are missing'
+    assert excluded.issubset(expected), 'An exclusion must identify an entry in the original snapshot'
+    assert not (excluded & actual), 'An explicitly excluded publication is still displayed'
+    assert (expected - excluded).issubset(actual), 'Some non-excluded Scholar publications are missing'
     assert len(actual) == len(entries), 'Duplicate Scholar publications'
 for ref in page.refs:
     parsed = urlparse(ref)
@@ -74,4 +79,20 @@ for ref in root_page.refs:
         target = (ROOT / unquote(parsed.path)).resolve()
         assert target.is_relative_to(ROOT.resolve()) and target.is_file(), f'Missing root asset: {ref}'
 assert (ROOT / '.nojekyll').is_file(), 'Branch publishing requires .nojekyll'
+papers = sorted(json.loads((ROOT / 'data/publications.json').read_text()), key=lambda p: p['year'], reverse=True)
+expected_bib = '\n\n'.join(p['bibtex'] for p in papers) + '\n'
+assert (DIST / 'publications.bib').read_text() == expected_bib
+assert (ROOT / 'publications.bib').read_text() == expected_bib
+keys = []
+for paper in papers:
+    match = re.match(r'@\w+\{\s*([^,]+),', paper['bibtex'])
+    assert match, f'Missing BibTeX entry for {paper["id"]}'
+    keys.append(match[1])
+    assert paper.get('citationSources'), f'Missing citation source for {paper["id"]}'
+assert len(keys) == len(set(keys)), 'Duplicate citation keys'
+news = json.loads((ROOT / 'data/news.json').read_text())
+covered = [pid for item in news for pid in item['paperIds']]
+accepted = {p['id'] for p in papers if p['venue'] != 'arXiv'}
+assert set(covered) == accepted, 'News must cover accepted papers and exclude unaccepted preprints'
+assert len(covered) == len(set(covered)), 'Repeated paper in acceptance news'
 print(f'PASS: {page.articles} publications; {len(page.refs)} references; all local assets, anchors, SVGs and required metadata.')

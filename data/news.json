@@ -11,7 +11,44 @@
     "evidenceNote": "Publisher article history explicitly states Accepted: 13 September 2026 (publication date is 03 October 2026).",
     "labels": {
       "pftv2": "PFTv2"
-    }
+    },
+    "dateBasis": "publisher_history"
+  },
+  {
+    "date": "2026-06",
+    "paperIds": [
+      "iet"
+    ],
+    "venue": "ECCV 2026",
+    "labels": {
+      "iet": "IET"
+    },
+    "sources": [
+      "https://github.com/CVL-UESTC/IET",
+      "https://link.springer.com/chapter/10.1007/978-3-032-37467-7_1",
+      "https://eccv.ecva.net/Conferences/2026/Dates"
+    ],
+    "evidenceNote": "The authors’ official repository and Springer proceedings confirm ECCV 2026 acceptance/publication. The month is inferred from the official main-conference final-decision date, 17 June 2026; it is not a retrieved paper-specific acceptance-email date.",
+    "dateBasis": "conference_notification"
+  },
+  {
+    "date": "2026-02",
+    "paperIds": [
+      "idesplat",
+      "rdvq"
+    ],
+    "venue": "CVPR 2026",
+    "labels": {
+      "idesplat": "IDESplat",
+      "rdvq": "RDVQ"
+    },
+    "sources": [
+      "https://github.com/CVL-UESTC/IDESplat",
+      "https://github.com/CVL-UESTC/RDVQ",
+      "https://cvpr.thecvf.com/Conferences/2026/Dates"
+    ],
+    "evidenceNote": "The authors’ official repositories confirm both works are CVPR 2026 papers (RDVQ is Oral). The month is inferred from the official main-conference final-decision date, 20 February 2026; it is not a retrieved paper-specific acceptance-email date.",
+    "dateBasis": "conference_notification"
   },
   {
     "date": "2026-01",
@@ -28,7 +65,8 @@
     "labels": {
       "tvqrap": "TVQ&RAP",
       "mvar": "MVAR"
-    }
+    },
+    "dateBasis": "author_announcement"
   },
   {
     "date": "2025-02",
@@ -39,9 +77,122 @@
     "sources": [
       "https://zhouxingyu13.github.io/"
     ],
-    "evidenceNote": "Coauthor Xingyu Zhou News explicitly dates PFT-SR acceptance February 2025.",
+    "evidenceNote": "Coauthor Xingyu Zhou News explicitly dates PFT-SR acceptance February 2025. Display method name corrected to PFT as requested by the author; PFT-SR is the repository/coauthor-page label.",
     "labels": {
-      "pft": "PFT-SR"
-    }
+      "pft": "PFT"
+    },
+    "dateBasis": "author_announcement"
+  },
+  {
+    "date": "2024-02",
+    "paperIds": [
+      "mocha"
+    ],
+    "venue": "CVPR 2024",
+    "labels": {
+      "mocha": "MoCha-Stereo"
+    },
+    "sources": [
+      "https://openaccess.thecvf.com/content/CVPR2024/html/Chen_MoCha-Stereo_Motif_Channel_Attention_Network_for_Stereo_Matching_CVPR_2024_paper.html",
+      "https://cvpr.thecvf.com/Conferences/2024/Dates"
+    ],
+    "evidenceNote": "Official CVF proceedings confirm the paper’s acceptance/publication. The month is inferred from the official main-conference final-decision date, 27 February 2024; it is not a retrieved paper-specific acceptance-email date.",
+    "dateBasis": "conference_notification"
+  },
+  {
+    "date": null,
+    "paperIds": [
+      "atd"
+    ],
+    "venue": "IEEE TPAMI",
+    "labels": {
+      "atd": "ATD"
+    },
+    "sources": [
+      "https://github.com/CVL-UESTC/Adaptive-Token-Dictionary",
+      "https://doi.org/10.1109/TPAMI.2026.3669974"
+    ],
+    "evidenceNote": "The authors’ official repository explicitly says the extended version is accepted by TPAMI. No reliable acceptance month was retrieved; March 2026 is a preprint/publication date and is not substituted. The available arXiv PDF was also inspected and contains no acceptance history.",
+    "dateBasis": "unknown"
+  },
+  {
+    "date": null,
+    "paperIds": [
+      "fsa"
+    ],
+    "venue": "Pattern Recognition",
+    "labels": {
+      "fsa": "FSA"
+    },
+    "sources": [
+      "https://doi.org/10.1016/j.patcog.2025.111899",
+      "https://github.com/gitlonglong/Full-Range-Self-Attention"
+    ],
+    "evidenceNote": "Publisher-registered DOI and author repository establish journal publication, but no reliable acceptance date was retrieved. Online publication in 2025 and issue year 2026 must not be treated as acceptance dates.",
+    "dateBasis": "unknown"
+  },
+  {
+    "date": null,
+    "paperIds": [
+      "llknet"
+    ],
+    "venue": "Engineering Applications of Artificial Intelligence",
+    "labels": {
+      "llknet": "LLKNet"
+    },
+    "sources": [
+      "https://doi.org/10.1016/j.engappai.2025.111979",
+      "https://www.sciencedirect.com/science/article/pii/S0952197625019876"
+    ],
+    "evidenceNote": "Publisher-registered DOI establishes journal publication, but no reliable acceptance date was retrieved. Do not reuse the online or issue publication date as acceptance. Method acronym verified in the publisher abstract.",
+    "dateBasis": "unknown"
+  },
+  {
+    "date": null,
+    "paperIds": [
+      "pgnet"
+    ],
+    "venue": "IEEE TGRS",
+    "labels": {
+      "pgnet": "PGNet"
+    },
+    "sources": [
+      "https://doi.org/10.1109/TGRS.2025.3571066",
+      "https://cs.gzu.edu.cn/_t2886/2025/0607/c16275a251964/page.htm"
+    ],
+    "evidenceNote": "Publisher-registered DOI establishes journal publication, but no reliable acceptance date was retrieved. Do not reuse the first-publication date as acceptance. Method acronym verified in the authors’ institution announcement dated 7 June 2025, which announces publication, not the acceptance date.",
+    "dateBasis": "unknown"
+  },
+  {
+    "date": null,
+    "paperIds": [
+      "mdmcr"
+    ],
+    "venue": "Knowledge-Based Systems",
+    "labels": {
+      "mdmcr": "MDMCR"
+    },
+    "sources": [
+      "https://doi.org/10.1016/j.knosys.2024.112032",
+      "https://www.sciencedirect.com/science/article/pii/S095070512400666X"
+    ],
+    "evidenceNote": "Publisher-registered DOI establishes journal publication, but no reliable acceptance date was retrieved. Do not reuse the publication date as acceptance. Method acronym verified in the publisher abstract.",
+    "dateBasis": "unknown"
+  },
+  {
+    "date": null,
+    "paperIds": [
+      "tanet"
+    ],
+    "venue": "IEEE TGRS",
+    "labels": {
+      "tanet": "TANet"
+    },
+    "sources": [
+      "https://doi.org/10.1109/TGRS.2023.3276081",
+      "https://arxiv.org/abs/2501.07984"
+    ],
+    "evidenceNote": "Publisher-registered DOI establishes the 2023 journal publication, but no reliable acceptance date was retrieved. The arXiv upload in January 2025 is not the acceptance date. The available arXiv PDF was also inspected and contains no acceptance history.",
+    "dateBasis": "unknown"
   }
 ]

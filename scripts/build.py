@@ -89,8 +89,11 @@ for group_id, title in [('lead', 'First / Co-first Author'), ('other', 'Other Co
     groups.append(f'<section class="authorship-group" data-authorship-group="{group_id}" aria-labelledby="authorship-{group_id}"><div class="authorship-heading"><h3 id="authorship-{group_id}">{title}</h3><span class="authorship-count">{len(group_papers)} papers</span></div>' + ''.join(years) + '</section>')
 papers_by_id = {p['id']: p for p in PAPERS}
 news_rows = []
-for item in sorted(NEWS, key=lambda item: item['date'], reverse=True):
-    datetime.strptime(item['date'], '%Y-%m')
+undated_news_rows = []
+has_notification_dates = False
+for item in sorted(NEWS, key=lambda item: item['date'] or '', reverse=True):
+    if item['date']:
+        datetime.strptime(item['date'], '%Y-%m')
     assert item['paperIds'] and len(set(item['paperIds'])) == len(item['paperIds'])
     assert item.get('sources'), 'Acceptance news needs a source for its date'
     news_links = [external(papers_by_id[pid]['paper'], item['labels'][pid]) for pid in item['paperIds']]
@@ -98,8 +101,19 @@ for item in sorted(NEWS, key=lambda item: item['date'], reverse=True):
     count = len(news_links)
     subject = 'One paper' if count == 1 else ('Two papers' if count == 2 else f'{count} papers')
     verb = 'is' if count == 1 else 'are'
-    news_rows.append(f'<li><time datetime="{item["date"]}">[{item["date"]}]</time><span>{subject} {paper_links} {verb} accepted to {e(item["venue"])}.</span></li>')
-news_html = '<section class="news" id="news" aria-labelledby="news-title"><h2 id="news-title">News</h2><ul class="news-list">' + ''.join(news_rows) + '</ul></section>' if NEWS else ''
+    ids = e(' '.join(item['paperIds']))
+    sentence = f'{subject} {paper_links} {verb} accepted to {e(item["venue"])}.'
+    if item['date']:
+        is_notification_date = item.get('dateBasis') == 'conference_notification'
+        has_notification_dates |= is_notification_date
+        marker = '<sup><a href="#news-date-note" aria-label="Month based on the official conference notification schedule">†</a></sup>' if is_notification_date else ''
+        news_rows.append(f'<li class="news-item" data-paper-ids="{ids}"><span class="news-date"><time datetime="{item["date"]}">[{item["date"]}]</time>{marker}</span><span>{sentence}</span></li>')
+    else:
+        undated_news_rows.append(f'<li class="news-item" data-paper-ids="{ids}">{sentence}</li>')
+news_note = '<p class="news-note" id="news-date-note">† Month follows the conference’s official notification schedule.</p>' if has_notification_dates else ''
+undated_count = sum(len(item['paperIds']) for item in NEWS if not item['date'])
+more_news = ('<details class="more-news"><summary>More acceptances (' + str(undated_count) + ' papers)</summary><p class="news-note">Acceptance months are not listed for these entries.</p><ul class="undated-news">' + ''.join(undated_news_rows) + '</ul></details>') if undated_news_rows else ''
+news_html = '<section class="news" id="news" aria-labelledby="news-title"><h2 id="news-title">News</h2><ul class="news-list">' + ''.join(news_rows) + '</ul>' + news_note + more_news + '</section>' if NEWS else ''
 news_nav = '<a href="#news">News</a>' if NEWS else ''
 links = ''
 if PROFILE.get('email'):
@@ -135,12 +149,13 @@ html = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{e(PROFILE['name'])} | UESTC</title><meta name="description" content="{e(description)}"><meta name="theme-color" content="#fdfdfb"><meta property="og:title" content="{e(PROFILE['name'])} | UESTC"><meta property="og:description" content="{e(description)}"><meta property="og:type" content="website">{canonical}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><script src="assets/site.js" defer></script><script type="application/ld+json">{jsonld}</script></head>
 <body id="top"><a class="skip-link" href="#main">Skip to content</a><header class="header container"><a class="brand" href="#top">{e(PROFILE['name'])}</a><nav aria-label="Main navigation"><a href="#about">About</a>{news_nav}<a href="#publications">Publications</a><a href="mailto:{e(PROFILE['email'])}">Email</a></nav></header>
 <main id="main" class="container"><section class="about" id="about" aria-labelledby="name"><div class="about-copy"><h1 id="name">{e(PROFILE['name'])}</h1><p class="affiliation">{e(PROFILE['role'])} · <a href="{url(PROFILE['institutionUrl'])}" target="_blank" rel="noopener noreferrer">{e(PROFILE['institutionShort'])}</a></p><p class="bio">{biography}</p><div class="profile-links">{links}</div></div>{portrait}</section>
-{news_html}<section class="publications" id="publications" aria-labelledby="publications-title"><div class="section-top"><h2 id="publications-title">Publications</h2><a class="scholar-link" href="{url(PROFILE['scholar'])}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></div><div class="publication-toolbar"><p class="publication-note">Grouped by authorship, then by year. {equal_note}</p><label class="topic-control" hidden><span class="sr-only">Filter publications by research area</span><select id="topic-filter">{options}</select></label></div><p class="result-count" id="result-count" role="status">{len(PAPERS)} papers</p><div id="publication-list">{''.join(groups)}</div><p id="empty-state" hidden>No publications in this research area.</p></section>
+{news_html}<section class="publications" id="publications" aria-labelledby="publications-title"><div class="section-top"><h2 id="publications-title">Publications</h2><a class="scholar-link" href="{url(PROFILE['scholar'])}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></div><div class="publication-toolbar"><p class="publication-note">Grouped by authorship, then by year. {equal_note} <a href="publications.bib" download="publications.bib">Download BibTeX</a></p><label class="topic-control" hidden><span class="sr-only">Filter publications by research area</span><select id="topic-filter">{options}</select></label></div><p class="result-count" id="result-count" role="status">{len(PAPERS)} papers</p><div id="publication-list">{''.join(groups)}</div><p id="empty-state" hidden>No publications in this research area.</p></section>
 </main><footer class="container"><span>{e(PROFILE['name'])} · {e(PROFILE['institutionShort'])}</span><span>Updated {e(PROFILE['updated'])}</span><a href="#top">Back to top ↑</a></footer></body></html>'''
 OUT.mkdir(exist_ok=True)
 (OUT / 'index.html').write_text(html, encoding='utf-8')
 (OUT / '.nojekyll').touch()
 (OUT / 'publications.bib').write_text('\n\n'.join(p['bibtex'] for p in PAPERS if p.get('bibtex')) + '\n')
+(ROOT / 'publications.bib').write_text((OUT / 'publications.bib').read_text())
 if PROFILE.get('siteUrl'):
     (OUT / 'sitemap.xml').write_text(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>{e(PROFILE["siteUrl"])}</loc></url></urlset>')
     (OUT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {PROFILE["siteUrl"].rstrip("/")}/sitemap.xml\n')
@@ -160,16 +175,16 @@ else:
 sources = '# Content sources\n\nVerified 2026-11-04.\n\n'
 sources += '- Google Scholar exact profile: https://scholar.google.com/citations?user=CsVTBJoAAAAJ&hl=en&pagesize=100\n'
 sources += '- Complete snapshot: 18 article rows, “Articles 1–18”, Show more disabled. The profile was retrieved through the configured proxy after a direct timeout.\n'
-sources += '- All Scholar entries are retained, including preprints and journal extensions. Formal venue year is used for grouping; original Scholar title, year, venue, and citation ID are retained in the data.\n'
+sources += f'- The homepage currently displays {len(PAPERS)} entries. Explicit author-requested exclusions are recorded in data/publication-exclusions.json; the historical Scholar snapshot is preserved. Formal venue year is used for grouping.\n'
 sources += '- Identity/group: https://github.com/gitlonglong. User confirmed PhD student at UESTC, GitHub gitlonglong, and public email lwsch5940@163.com.\n'
 sources += '- User confirmed advisor Shuhang Gu: https://shuhanggu.github.io/. The group website https://diggers.ai/ is linked by UESTC’s official article https://news.uestc.edu.cn/info/1005/38639.htm.\n'
 sources += '- Portrait is the photo from the user-supplied Scholar profile. Figure sources below are the authors’ official repositories.\n'
 sources += '- Descriptions are original summaries. Equal contribution is only marked when supported by Scholar or the authors’ repository. No citation statistics are reproduced.\n'
-sources += '- BibTeX omits unverified volume, page, and DOI fields.\n\n'
+sources += '- Every displayed BibTeX entry was audited against official conference/publisher exports or publisher-deposited Crossref metadata; preprints use official arXiv BibTeX. Citation sources and findings are recorded in data/citation-audit.json. Unverified fields are omitted and citation keys are preserved.\n\n'
 sources += '- Authorship groups use author order and verified equal-contribution marks; co-first authors share the leading author’s contribution group.\n\n'
 sources += '## Acceptance news\n\n'
 for item in NEWS:
-    sources += f'- {item["date"]} / {item["venue"]} / {", ".join(item["paperIds"])}: {item["evidenceNote"]}\n'
+    sources += f'- {item["date"] or "Acceptance month not established"} / {item["venue"]} / {", ".join(item["paperIds"])}: {item["evidenceNote"]}\n'
     sources += ''.join(f'  - {source}\n' for source in item['sources'])
 sources += '\n'
 for p in PAPERS:

@@ -21,4 +21,4 @@ jobs:
           python3 scripts/check.py
           node --check dist/assets/site.js
       - name: Check committed pages match the source data
-        run: git diff --exit-code -- index.html robots.txt sitemap.xml dist SOURCES.md
+        run: git diff --exit-code -- index.html robots.txt sitemap.xml publications.bib dist SOURCES.md

@@ -43,7 +43,7 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory dist
 
 当前已使用你确认的 **UESTC 博士生**身份、**lwsch5940@163.com** 邮箱和 **gitlonglong** 账号。公开资料来源与未核实信息见 `SOURCES.md`。
 
-- **已具备核心资料：** 姓名、身份、单位、公开邮箱、GitHub、Scholar、研究方向、本人头像及 Scholar 的全部 18 篇论文；英文简介已根据公开资料起草，可直接编辑。
+- **已具备核心资料：** 姓名、身份、单位、公开邮箱、GitHub、Scholar、研究方向、本人头像及 17 篇论文；已按本人要求排除指定的人脸识别论文。
 - **推荐补充：** 更高分辨率头像、个人简历 PDF、其余论文的配图。
 - **可选内容：** 中文姓名、导师、教育经历、实习经历、获奖、学术服务和新闻动态。
 
@@ -53,13 +53,23 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory dist
 
 2026-11-04 读取的 Scholar 页面显示 `Articles 1–18`，且 `Show more` 按钮禁用；已核对全部 18 个详情页。快照记录在 `data/scholar-snapshot.json`，原始论文标题、年份、作者与 Scholar ID 保留在数据中。
 
+历史快照保留原始 18 条记录；当前主页显示 17 篇。本人要求移除的条目记录在 `data/publication-exclusions.json`，同步 Scholar 时应继续排除，避免重新加回。
+
 主页先分为一作／共同一作和其他作者位次两组，各组内按正式发表年份排列。分组由 `authors` 的作者顺序和 `equalContribution` 的已核实共同一作信息决定；与第一位作者共享贡献标记才会归入共同一作，不把普通第二作者当作共同一作。
 
 例如 ICLR 2026 的论文在 Scholar 上可能记为 2025 年预印本，页面另显示初次发表年份。PFT 的 CVPR 2025 版本与 IJCV 2026 扩展版分别列出，未经核实接收的预印本仅标为 arXiv。已确认的共同一作用 `*` 标注。
 
 新增论文时编辑 `data/publications.json`，然后运行 `python3 scripts/build.py` 和 `python3 scripts/check.py`。如重新同步 Scholar，请同时更新快照；检查脚本会防止误删已收录的 Scholar 条目。
 
-Publications 前的 **News** 来自 `data/news.json`。每项包含接收月份 `date`（`YYYY-MM`）、关联论文 `paperIds`、显示简称 `labels`、会议／期刊 `venue` 和日期依据 `sources`。同月同会议的论文可以合为一条动态。仅使用可核实或本人确认的接收月份，不把 arXiv 上传时间或正式出版时间当作接收时间。
+Publications 前的 **News** 来自 `data/news.json`，目前覆盖全部 14 篇已接收论文，不把 3 篇纯预印本写为已接收。每项包含接收月份 `date`（`YYYY-MM` 或 `null`）、关联论文 `paperIds`、显示简称 `labels`、会议／期刊 `venue` 和日期依据 `sources`、`dateBasis`。同月同会议的论文可以合为一条动态。
+
+有作者公告或出版社接收记录的月份直接显示；根据官方会议通知日期整理的月份标记 `†`，并提供说明。尚未查到月份的 6 篇期刊论文列在可展开的“More acceptances”中，不以出版日期或 arXiv 上传日期代替接收日期。收到本人确认的日期后可填写 `date` 并更新依据。
+
+## BibTeX 与来源
+
+17 篇论文均于 2026-11-04 重新审核：会议论文使用正式论文集，期刊论文使用出版社或 Crossref 的出版商登记记录，纯预印本使用 arXiv 官方导出。逐篇来源和修正说明见 `data/citation-audit.json`。未确认的 DOI 等字段不猜填，引用键保持不变。
+
+页面内每篇论文的 BibTeX、复制结果和完整下载均来自 `data/publications.json` 的同一字段。生成的 `publications.bib` 与 `dist/publications.bib` 内容一致，收录全部 17 篇。本轮已用 Pybtex 解析并实际格式化渲染，检查了标题、作者顺序、年份、DOI、重复键和重音字符。Pybtex 只用于这次审计，网站本身没有新增运行依赖。
 
 ## GitHub Pages 发布与更新
 
@@ -72,7 +82,7 @@ Publications 前的 **News** 来自 `data/news.json`。每项包含接收月份 
 ```bash
 python3 scripts/build.py
 python3 scripts/check.py
-git add data scripts dist index.html .nojekyll robots.txt sitemap.xml SOURCES.md README.md .github
+git add data scripts dist index.html .nojekyll robots.txt sitemap.xml publications.bib SOURCES.md README.md .github
 git commit -m "Update academic homepage"
 git push origin main
 ```

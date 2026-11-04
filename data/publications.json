@@ -9,7 +9,11 @@
     "project": null,
     "sources": [
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:kNdYIx-mwKoC",
-      "https://link.springer.com/article/10.1007/s11263-026-03053-1"
+      "https://link.springer.com/article/10.1007/s11263-026-03053-1",
+      "https://api.crossref.org/works/10.1007/s11263-026-03053-1",
+      "https://api.crossref.org/works/10.1007/s11263-026-03053-1/transform/application/x-bibtex",
+      "https://doi.org/10.1007/s11263-026-03053-1",
+      "https://citation-needed.springer.com/v2/references/10.1007/s11263-026-03053-1?format=bibtex&flavour=citation"
     ],
     "doi": "10.1007/s11263-026-03053-1",
     "id": "pftv2",
@@ -30,7 +34,14 @@
     "equalContribution": [],
     "relatedPublication": "pft",
     "bibtex": "@article{pftv22026,\n  title={{Progressive Focused Transformer for Image Restoration}},\n  author={Long, Wei and Zhang, Jinhua and Zhou, Xingyu and Zhang, Leheng and Gu, Shuhang},\n  journal={International Journal of Computer Vision},\n  year={2026},\n  volume={134},\n  number={10},\n  pages={458},\n  doi={10.1007/s11263-026-03053-1},\n  url={https://doi.org/10.1007/s11263-026-03053-1}\n}",
-    "scholarPaperUrl": "https://link.springer.com/article/10.1007/s11263-026-03053-1"
+    "scholarPaperUrl": "https://link.springer.com/article/10.1007/s11263-026-03053-1",
+    "citationSources": [
+      "https://api.crossref.org/works/10.1007/s11263-026-03053-1",
+      "https://api.crossref.org/works/10.1007/s11263-026-03053-1/transform/application/x-bibtex",
+      "https://doi.org/10.1007/s11263-026-03053-1",
+      "https://link.springer.com/article/10.1007/s11263-026-03053-1",
+      "https://citation-needed.springer.com/v2/references/10.1007/s11263-026-03053-1?format=bibtex&flavour=citation"
+    ]
   },
   {
     "year": 2026,
@@ -42,7 +53,8 @@
     "project": null,
     "sources": [
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:3fE2CSJIrl8C",
-      "https://arxiv.org/abs/2609.00798"
+      "https://arxiv.org/abs/2609.00798",
+      "https://arxiv.org/bibtex/2609.00798"
     ],
     "id": "pixsgr",
     "title": "Advanced Pixel Diffusion Model with Guided Sparse Global Refinement",
@@ -61,8 +73,12 @@
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:3fE2CSJIrl8C",
     "scholarPublicationDate": "2026/9/1",
     "equalContribution": [],
-    "bibtex": "@article{pixsgr2026,\n  title={{Advanced Pixel Diffusion Model with Guided Sparse Global Refinement}},\n  author={You, Weiyi and Zhang, Jinhua and Zhou, Xingyu and Long, Wei and Lou, Junyu and Gu, Shuhang},\n  journal={arXiv preprint arXiv:2609.00798},\n  year={2026},\n  url={https://arxiv.org/abs/2609.00798}\n}",
-    "scholarPaperUrl": "https://arxiv.org/abs/2609.00798"
+    "bibtex": "@misc{pixsgr2026,\n      title={{Advanced Pixel Diffusion Model with Guided Sparse Global Refinement}},\n      author={Weiyi You and Jinhua Zhang and Xingyu Zhou and Wei Long and Junyu Lou and Shuhang Gu},\n      year={2026},\n      eprint={2609.00798},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2609.00798},\n}",
+    "scholarPaperUrl": "https://arxiv.org/abs/2609.00798",
+    "citationSources": [
+      "https://arxiv.org/abs/2609.00798",
+      "https://arxiv.org/bibtex/2609.00798"
+    ]
   },
   {
     "year": 2026,
@@ -74,7 +90,8 @@
     "project": null,
     "sources": [
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:8k81kl-MbHgC",
-      "https://arxiv.org/abs/2608.00562"
+      "https://arxiv.org/abs/2608.00562",
+      "https://arxiv.org/bibtex/2608.00562"
     ],
     "id": "fdloss",
     "title": "Beyond Token-Level Cross-Entropy: Fréchet Distributional Post-Training for Autoregressive Image Generation",
@@ -91,8 +108,12 @@
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:8k81kl-MbHgC",
     "scholarPublicationDate": "2026/8/1",
     "equalContribution": [],
-    "bibtex": "@article{fdloss2026,\n  title={{Beyond Token-Level Cross-Entropy: Fréchet Distributional Post-Training for Autoregressive Image Generation}},\n  author={Zhang, Jinhua and Lin, Yisong and Long, Wei and Gu, Shuhang},\n  journal={arXiv preprint arXiv:2608.00562},\n  year={2026},\n  url={https://arxiv.org/abs/2608.00562}\n}",
-    "scholarPaperUrl": "https://arxiv.org/abs/2608.00562"
+    "bibtex": "@misc{fdloss2026,\n      title={{Beyond Token-Level Cross-Entropy: Fr{\\'e}chet Distributional Post-Training for Autoregressive Image Generation}},\n      author={Jinhua Zhang and Yisong Lin and Wei Long and Shuhang Gu},\n      year={2026},\n      eprint={2608.00562},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2608.00562},\n}",
+    "scholarPaperUrl": "https://arxiv.org/abs/2608.00562",
+    "citationSources": [
+      "https://arxiv.org/abs/2608.00562",
+      "https://arxiv.org/bibtex/2608.00562"
+    ]
   },
   {
     "id": "rdvq",
@@ -115,9 +136,10 @@
     "sources": [
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:hqOjcs7Dif8C",
       "https://arxiv.org/abs/2604.10546",
-      "https://github.com/CVL-UESTC/RDVQ"
+      "https://github.com/CVL-UESTC/RDVQ",
+      "https://openaccess.thecvf.com/content/CVPR2026/html/Jiang_Differentiable_Vector_Quantization_for_Rate-Distortion_Optimization_of_Generative_Image_Compression_CVPR_2026_paper.html"
     ],
-    "bibtex": "@inproceedings{jiang2026differentiable,\n  title={Differentiable Vector Quantization for Rate-Distortion Optimization of Generative Image Compression},\n  author={Jiang, Shiyin and Long, Wei and Han, Minghao and Chen, Zhenghao and Zhu, Ce and Gu, Shuhang},\n  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  year={2026},\n  url={https://arxiv.org/abs/2604.10546}\n}",
+    "bibtex": "@inproceedings{jiang2026differentiable,\n  author={Jiang, Shiyin and Long, Wei and Han, Minghao and Chen, Zhenghao and Zhu, Ce and Gu, Shuhang},\n  title={{Differentiable Vector Quantization for Rate-Distortion Optimization of Generative Image Compression}},\n  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n  month={June},\n  year={2026},\n  pages={14440--14450},\n  url={https://openaccess.thecvf.com/content/CVPR2026/html/Jiang_Differentiable_Vector_Quantization_for_Rate-Distortion_Optimization_of_Generative_Image_Compression_CVPR_2026_paper.html}\n}",
     "scholarTitle": "Differentiable Vector Quantization for Rate-Distortion Optimization of Generative Image Compression",
     "scholarYear": 2026,
     "scholarVenue": "CVPR 2026 , 2026",
@@ -125,7 +147,10 @@
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:hqOjcs7Dif8C",
     "scholarPublicationDate": "2026/4/12",
     "equalContribution": [],
-    "scholarPaperUrl": "https://arxiv.org/abs/2604.10546"
+    "scholarPaperUrl": "https://arxiv.org/abs/2604.10546",
+    "citationSources": [
+      "https://openaccess.thecvf.com/content/CVPR2026/html/Jiang_Differentiable_Vector_Quantization_for_Rate-Distortion_Optimization_of_Generative_Image_Compression_CVPR_2026_paper.html"
+    ]
   },
   {
     "id": "atd",
@@ -149,9 +174,12 @@
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:Se3iqnhoufwC",
       "https://arxiv.org/abs/2603.02581",
       "https://github.com/CVL-UESTC/Adaptive-Token-Dictionary",
-      "https://ieeexplore.ieee.org/abstract/document/11419871/"
+      "https://ieeexplore.ieee.org/abstract/document/11419871/",
+      "https://api.crossref.org/works/10.1109/tpami.2026.3669974",
+      "https://api.crossref.org/works/10.1109/tpami.2026.3669974/transform/application/x-bibtex",
+      "https://doi.org/10.1109/TPAMI.2026.3669974"
     ],
-    "bibtex": "@article{zhang2026atd,\n  title={ATD: Improved Transformer with Adaptive Token Dictionary for Image Restoration},\n  author={Zhang, Leheng and Long, Wei and Li, Yawei and Zhou, Xingyu and Zhao, Xiaorui and Gu, Shuhang},\n  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},\n  year={2026},\n  url={https://arxiv.org/abs/2603.02581}\n}",
+    "bibtex": "@article{zhang2026atd,\n  title={{ATD: Improved Transformer With Adaptive Token Dictionary for Image Restoration}},\n  author={Zhang, Leheng and Long, Wei and Li, Yawei and Zhou, Xingyu and Zhao, Xiaorui and Gu, Shuhang},\n  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},\n  year={2026},\n  volume={48},\n  number={7},\n  pages={8018--8033},\n  doi={10.1109/TPAMI.2026.3669974},\n  url={https://doi.org/10.1109/TPAMI.2026.3669974}\n}",
     "scholarTitle": "ATD: Improved Transformer With Adaptive Token Dictionary for Image Restoration",
     "scholarYear": 2026,
     "scholarVenue": "IEEE Transactions on Pattern Analysis and Machine Intelligence , 2026",
@@ -159,7 +187,13 @@
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:Se3iqnhoufwC",
     "scholarPublicationDate": "2026/3/3",
     "equalContribution": [],
-    "scholarPaperUrl": "https://ieeexplore.ieee.org/abstract/document/11419871/"
+    "scholarPaperUrl": "https://ieeexplore.ieee.org/abstract/document/11419871/",
+    "doi": "10.1109/TPAMI.2026.3669974",
+    "citationSources": [
+      "https://api.crossref.org/works/10.1109/tpami.2026.3669974",
+      "https://api.crossref.org/works/10.1109/tpami.2026.3669974/transform/application/x-bibtex",
+      "https://doi.org/10.1109/TPAMI.2026.3669974"
+    ]
   },
   {
     "year": 2026,
@@ -173,7 +207,9 @@
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:LkGwnXOMwfcC",
       "https://arxiv.org/abs/2601.08341",
       "https://github.com/CVL-UESTC/IET",
-      "https://link.springer.com/chapter/10.1007/978-3-032-37467-7_1"
+      "https://link.springer.com/chapter/10.1007/978-3-032-37467-7_1",
+      "https://citation-needed.springer.com/v2/references/10.1007/978-3-032-37467-7_1?format=bibtex&flavour=citation",
+      "https://api.crossref.org/works/10.1007/978-3-032-37467-7_1"
     ],
     "id": "iet",
     "title": "From Local Windows to Adaptive Candidates via Individualized Exploratory: Rethinking Attention for Image Super-Resolution",
@@ -189,8 +225,14 @@
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:LkGwnXOMwfcC",
     "scholarPublicationDate": "2026/1/13",
     "equalContribution": [],
-    "bibtex": "@inproceedings{iet2026,\n  title={{From Local Windows to Adaptive Candidates via Individualized Exploratory: Rethinking Attention for Image Super-Resolution}},\n  author={Meng, Chunyu and Long, Wei and Gu, Shuhang},\n  booktitle={European Conference on Computer Vision},\n  year={2026},\n  url={https://arxiv.org/abs/2601.08341}\n}",
-    "scholarPaperUrl": "https://link.springer.com/chapter/10.1007/978-3-032-37467-7_1"
+    "bibtex": "@inproceedings{iet2026,\n  author={Meng, Chunyu and Long, Wei and Gu, Shuhang},\n  title={{From Local Windows to Adaptive Candidates via Individualized Exploratory: Rethinking Attention for Image Super-Resolution}},\n  editor={Favaro, Paolo and Kukelova, Zuzana and Maki, Atsuto and Rohrbach, Anna and Schindler, Konrad and Tombari, Federico},\n  booktitle={Computer Vision -- ECCV 2026},\n  series={Lecture Notes in Computer Science},\n  volume={17037},\n  year={2026},\n  publisher={Springer Nature Switzerland},\n  address={Cham},\n  pages={1--18},\n  isbn={978-3-032-37467-7},\n  doi={10.1007/978-3-032-37467-7_1},\n  url={https://link.springer.com/chapter/10.1007/978-3-032-37467-7_1}\n}",
+    "scholarPaperUrl": "https://link.springer.com/chapter/10.1007/978-3-032-37467-7_1",
+    "doi": "10.1007/978-3-032-37467-7_1",
+    "citationSources": [
+      "https://link.springer.com/chapter/10.1007/978-3-032-37467-7_1",
+      "https://citation-needed.springer.com/v2/references/10.1007/978-3-032-37467-7_1?format=bibtex&flavour=citation",
+      "https://api.crossref.org/works/10.1007/978-3-032-37467-7_1"
+    ]
   },
   {
     "id": "idesplat",
@@ -213,9 +255,10 @@
     "sources": [
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:_FxGoFyzp5QC",
       "https://arxiv.org/abs/2601.03824",
-      "https://github.com/CVL-UESTC/IDESplat"
+      "https://github.com/CVL-UESTC/IDESplat",
+      "https://openaccess.thecvf.com/content/CVPR2026/html/Long_IDESplat_Iterative_Depth_Probability_Estimation_for_Generalizable_3D_Gaussian_Splatting_CVPR_2026_paper.html"
     ],
-    "bibtex": "@inproceedings{long2026idesplat,\n  title={IDESplat: Iterative Depth Probability Estimation for Generalizable 3D Gaussian Splatting},\n  author={Long, Wei and Wu, Haifeng and Jiang, Shiyin and Zhang, Jinhua and Ji, Xinchun and Gu, Shuhang},\n  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  year={2026},\n  url={https://arxiv.org/abs/2601.03824}\n}",
+    "bibtex": "@inproceedings{long2026idesplat,\n  author={Long, Wei and Wu, Haifeng and Jiang, Shiyin and Zhang, Jinhua and Ji, Xinchun and Gu, Shuhang},\n  title={{IDESplat: Iterative Depth Probability Estimation for Generalizable 3D Gaussian Splatting}},\n  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n  month={June},\n  year={2026},\n  pages={33248--33258},\n  url={https://openaccess.thecvf.com/content/CVPR2026/html/Long_IDESplat_Iterative_Depth_Probability_Estimation_for_Generalizable_3D_Gaussian_Splatting_CVPR_2026_paper.html}\n}",
     "scholarTitle": "IDESplat: Iterative Depth Probability Estimation for Generalizable 3D Gaussian Splatting",
     "scholarYear": 2026,
     "scholarVenue": "CVPR 2026 , 2026",
@@ -223,7 +266,10 @@
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:_FxGoFyzp5QC",
     "scholarPublicationDate": "2026/1/7",
     "equalContribution": [],
-    "scholarPaperUrl": "https://arxiv.org/abs/2601.03824"
+    "scholarPaperUrl": "https://arxiv.org/abs/2601.03824",
+    "citationSources": [
+      "https://openaccess.thecvf.com/content/CVPR2026/html/Long_IDESplat_Iterative_Depth_Probability_Estimation_for_Generalizable_3D_Gaussian_Splatting_CVPR_2026_paper.html"
+    ]
   },
   {
     "id": "tvqrap",
@@ -246,9 +292,10 @@
     "sources": [
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:roLk4NBRz8UC",
       "https://proceedings.iclr.cc/paper_files/paper/2026/hash/67c15da4a9340140c60783d9a175fd3f-Abstract-Conference.html",
-      "https://github.com/CVL-UESTC/TVQ-RAP"
+      "https://github.com/CVL-UESTC/TVQ-RAP",
+      "https://proceedings.iclr.cc/paper_files/paper/7288-/bibtex"
     ],
-    "bibtex": "@inproceedings{li2026texture,\n  title={Texture Vector-Quantization and Reconstruction Aware Prediction for Generative Super-Resolution},\n  author={Li, Qifan and Zou, Jiale and Zhang, Jinhua and Long, Wei and Zhou, Xingyu and Gu, Shuhang},\n  booktitle={International Conference on Learning Representations},\n  year={2026},\n  url={https://arxiv.org/abs/2509.23774}\n}",
+    "bibtex": "@inproceedings{li2026texture,\n  author={Li, Qifan and Zou, Jiale and Zhang, Jinhua and Long, Wei and Zhou, Xingyu and Gu, Shuhang},\n  title={{Texture Vector-Quantization and Reconstruction Aware Prediction for Generative Super-Resolution}},\n  booktitle={International Conference on Learning Representations},\n  editor={C. Vondrick and B. Hariharan and C. Raffel and L. Pinto and D. Yang and A. Faust},\n  volume={2026},\n  year={2026},\n  pages={63694--63714},\n  url={https://proceedings.iclr.cc/paper_files/paper/2026/hash/67c15da4a9340140c60783d9a175fd3f-Abstract-Conference.html}\n}",
     "scholarTitle": "Texture Vector-Quantization and Reconstruction Aware Prediction for Generative Super-Resolution",
     "scholarYear": 2025,
     "scholarVenue": "ICLR 2026 , 2025",
@@ -257,7 +304,11 @@
     "scholarPublicationDate": "2025/9/28",
     "equalContribution": [],
     "yearNote": "First posted as an arXiv preprint in 2025; published at ICLR 2026.",
-    "scholarPaperUrl": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/67c15da4a9340140c60783d9a175fd3f-Abstract-Conference.html"
+    "scholarPaperUrl": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/67c15da4a9340140c60783d9a175fd3f-Abstract-Conference.html",
+    "citationSources": [
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/67c15da4a9340140c60783d9a175fd3f-Abstract-Conference.html",
+      "https://proceedings.iclr.cc/paper_files/paper/7288-/bibtex"
+    ]
   },
   {
     "year": 2026,
@@ -272,11 +323,14 @@
       "https://www.sciencedirect.com/science/article/abs/pii/S003132032500559X",
       "https://www.sciencedirect.com/author/55739754700/yongjun-zhang",
       "https://github.com/gitlonglong/Full-Range-Self-Attention",
-      "https://www.sciencedirect.com/science/article/pii/S003132032500559X"
+      "https://www.sciencedirect.com/science/article/pii/S003132032500559X",
+      "https://api.crossref.org/works/10.1016/j.patcog.2025.111899",
+      "https://api.crossref.org/works/10.1016/j.patcog.2025.111899/transform/application/x-bibtex",
+      "https://doi.org/10.1016/j.patcog.2025.111899"
     ],
     "doi": "10.1016/j.patcog.2025.111899",
     "id": "fsa",
-    "title": "Leveraging negative correlation for full-range self-attention in vision transformers",
+    "title": "Leveraging negative correlation for Full-Range Self-Attention in Vision Transformers",
     "authors": [
       "Wei Long",
       "Ziyang Chen",
@@ -297,8 +351,13 @@
       "Ziyang Chen"
     ],
     "yearNote": "First published online in 2025; assigned to Pattern Recognition volume 169 (January 2026).",
-    "bibtex": "@article{fsa2026,\n  title={{Leveraging negative correlation for full-range self-attention in vision transformers}},\n  author={Long, Wei and Chen, Ziyang and Li, Wenting and Zhang, Yongjun and Yao, He and Peng, Jiaxin and Cui, Zhongwei},\n  journal={Pattern Recognition},\n  year={2026},\n  volume={169},\n  pages={111899},\n  doi={10.1016/j.patcog.2025.111899},\n  url={https://doi.org/10.1016/j.patcog.2025.111899}\n}",
-    "scholarPaperUrl": "https://www.sciencedirect.com/science/article/pii/S003132032500559X"
+    "bibtex": "@article{fsa2026,\n  title={{Leveraging negative correlation for Full-Range Self-Attention in Vision Transformers}},\n  author={Long, Wei and Chen, Ziyang and Li, Wenting and Zhang, Yongjun and Yao, He and Peng, Jiaxin and Cui, Zhongwei},\n  journal={Pattern Recognition},\n  year={2026},\n  volume={169},\n  pages={111899},\n  doi={10.1016/j.patcog.2025.111899},\n  url={https://doi.org/10.1016/j.patcog.2025.111899}\n}",
+    "scholarPaperUrl": "https://www.sciencedirect.com/science/article/pii/S003132032500559X",
+    "citationSources": [
+      "https://api.crossref.org/works/10.1016/j.patcog.2025.111899",
+      "https://api.crossref.org/works/10.1016/j.patcog.2025.111899/transform/application/x-bibtex",
+      "https://doi.org/10.1016/j.patcog.2025.111899"
+    ]
   },
   {
     "id": "mvar",
@@ -321,9 +380,10 @@
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:Tyk-4Ss8FVUC",
       "https://arxiv.org/abs/2505.12742",
       "https://huggingface.co/CVLUESTC/MVAR/blob/main/README.md",
-      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/37c6d0bc4d2917dcbea693b18504bd87-Abstract-Conference.html"
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/37c6d0bc4d2917dcbea693b18504bd87-Abstract-Conference.html",
+      "https://proceedings.iclr.cc/paper_files/paper/8597-/bibtex"
     ],
-    "bibtex": "@inproceedings{zhang2026mvar,\n  title={MVAR: Visual Autoregressive Modeling with Scale and Spatial Markovian Conditioning},\n  author={Zhang, Jinhua and Long, Wei and Han, Minghao and You, Weiyi and Gu, Shuhang},\n  booktitle={International Conference on Learning Representations},\n  year={2026},\n  url={https://arxiv.org/abs/2505.12742}\n}",
+    "bibtex": "@inproceedings{zhang2026mvar,\n  author={Zhang, Jinhua and Long, Wei and Han, Minghao and You, Weiyi and Gu, Shuhang},\n  title={{MVAR: Visual Autoregressive Modeling with Scale and Spatial Markovian Conditioning}},\n  booktitle={International Conference on Learning Representations},\n  editor={C. Vondrick and B. Hariharan and C. Raffel and L. Pinto and D. Yang and A. Faust},\n  volume={2026},\n  year={2026},\n  pages={32889--32917},\n  url={https://proceedings.iclr.cc/paper_files/paper/2026/hash/37c6d0bc4d2917dcbea693b18504bd87-Abstract-Conference.html}\n}",
     "scholarTitle": "MVAR: Visual Autoregressive Modeling with Scale and Spatial Markovian Conditioning",
     "scholarYear": 2025,
     "scholarVenue": "ICLR 2026 , 2025",
@@ -332,7 +392,11 @@
     "scholarPublicationDate": "2025/5/19",
     "equalContribution": [],
     "yearNote": "First posted as an arXiv preprint in 2025; published at ICLR 2026.",
-    "scholarPaperUrl": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/37c6d0bc4d2917dcbea693b18504bd87-Abstract-Conference.html"
+    "scholarPaperUrl": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/37c6d0bc4d2917dcbea693b18504bd87-Abstract-Conference.html",
+    "citationSources": [
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/37c6d0bc4d2917dcbea693b18504bd87-Abstract-Conference.html",
+      "https://proceedings.iclr.cc/paper_files/paper/8597-/bibtex"
+    ]
   },
   {
     "year": 2025,
@@ -345,7 +409,10 @@
     "sources": [
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:eQOLeE2rZwMC",
       "https://www.sciencedirect.com/science/article/abs/pii/S0952197625019876",
-      "https://www.sciencedirect.com/science/article/pii/S0952197625019876"
+      "https://www.sciencedirect.com/science/article/pii/S0952197625019876",
+      "https://api.crossref.org/works/10.1016/j.engappai.2025.111979",
+      "https://api.crossref.org/works/10.1016/j.engappai.2025.111979/transform/application/x-bibtex",
+      "https://doi.org/10.1016/j.engappai.2025.111979"
     ],
     "doi": "10.1016/j.engappai.2025.111979",
     "id": "llknet",
@@ -365,7 +432,12 @@
     "scholarPublicationDate": "2025/11/27",
     "equalContribution": [],
     "bibtex": "@article{llknet2025,\n  title={{Rethinking low-light knowledge for pedestrian detection in nighttime conditions}},\n  author={Chen, Ziyang and Yao, He and Li, Wenting and Long, Wei and Zhang, Yongjun},\n  journal={Engineering Applications of Artificial Intelligence},\n  year={2025},\n  volume={160},\n  pages={111979},\n  doi={10.1016/j.engappai.2025.111979},\n  url={https://doi.org/10.1016/j.engappai.2025.111979}\n}",
-    "scholarPaperUrl": "https://www.sciencedirect.com/science/article/pii/S0952197625019876"
+    "scholarPaperUrl": "https://www.sciencedirect.com/science/article/pii/S0952197625019876",
+    "citationSources": [
+      "https://api.crossref.org/works/10.1016/j.engappai.2025.111979",
+      "https://api.crossref.org/works/10.1016/j.engappai.2025.111979/transform/application/x-bibtex",
+      "https://doi.org/10.1016/j.engappai.2025.111979"
+    ]
   },
   {
     "year": 2025,
@@ -378,11 +450,13 @@
     "sources": [
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:YsMSGLbcyi4C",
       "https://doi.org/10.1109/TGRS.2025.3571066",
-      "https://ieeexplore.ieee.org/abstract/document/11006720/"
+      "https://ieeexplore.ieee.org/abstract/document/11006720/",
+      "https://api.crossref.org/works/10.1109/tgrs.2025.3571066",
+      "https://api.crossref.org/works/10.1109/tgrs.2025.3571066/transform/application/x-bibtex"
     ],
     "doi": "10.1109/TGRS.2025.3571066",
     "id": "pgnet",
-    "title": "Prior Information Guided Semi-Supervised Semantic Segmentation of Remote Sensing Images",
+    "title": "Prior Information-Guided Semi-Supervised Semantic Segmentation of Remote Sensing Images",
     "authors": [
       "Xiaorong Gan",
       "Wenting Li",
@@ -398,8 +472,13 @@
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:YsMSGLbcyi4C",
     "scholarPublicationDate": "2025/5/19",
     "equalContribution": [],
-    "bibtex": "@article{pgnet2025,\n  title={{Prior Information Guided Semi-Supervised Semantic Segmentation of Remote Sensing Images}},\n  author={Gan, Xiaorong and Li, Wenting and Zhang, Yongjun and Long, Wei and Lu, Yujie and Chen, Ziyang},\n  journal={IEEE Transactions on Geoscience and Remote Sensing},\n  year={2025},\n  doi={10.1109/TGRS.2025.3571066},\n  url={https://doi.org/10.1109/TGRS.2025.3571066}\n}",
-    "scholarPaperUrl": "https://ieeexplore.ieee.org/abstract/document/11006720/"
+    "bibtex": "@article{pgnet2025,\n  title={{Prior Information-Guided Semi-Supervised Semantic Segmentation of Remote Sensing Images}},\n  author={Gan, Xiaorong and Li, Wenting and Zhang, Yongjun and Long, Wei and Lu, Yujie and Chen, Ziyang},\n  journal={IEEE Transactions on Geoscience and Remote Sensing},\n  year={2025},\n  volume={63},\n  pages={1--16},\n  doi={10.1109/TGRS.2025.3571066},\n  url={https://doi.org/10.1109/TGRS.2025.3571066}\n}",
+    "scholarPaperUrl": "https://ieeexplore.ieee.org/abstract/document/11006720/",
+    "citationSources": [
+      "https://api.crossref.org/works/10.1109/tgrs.2025.3571066",
+      "https://api.crossref.org/works/10.1109/tgrs.2025.3571066/transform/application/x-bibtex",
+      "https://doi.org/10.1109/TGRS.2025.3571066"
+    ]
   },
   {
     "year": 2025,
@@ -413,7 +492,8 @@
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:Y0pCki6q_DkC",
       "https://arxiv.org/abs/2505.02159",
       "https://github.com/CVL-UESTC/LRTI-VSR",
-      "https://zhouxingyu13.github.io/"
+      "https://zhouxingyu13.github.io/",
+      "https://arxiv.org/bibtex/2505.02159"
     ],
     "id": "lrtivsr",
     "title": "Small Clips, Big Gains: Learning Long-Range Refocused Temporal Information for Video Super-Resolution",
@@ -433,8 +513,12 @@
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:Y0pCki6q_DkC",
     "scholarPublicationDate": "2025/5/4",
     "equalContribution": [],
-    "bibtex": "@article{lrtivsr2025,\n  title={{Small Clips, Big Gains: Learning Long-Range Refocused Temporal Information for Video Super-Resolution}},\n  author={Zhou, Xingyu and Long, Wei and Lu, Jingbo and Jiang, Shiyin and You, Weiyi and Wu, Haifeng and Gu, Shuhang},\n  journal={arXiv preprint arXiv:2505.02159},\n  year={2025},\n  url={https://arxiv.org/abs/2505.02159}\n}",
-    "scholarPaperUrl": "https://arxiv.org/abs/2505.02159"
+    "bibtex": "@misc{lrtivsr2025,\n      title={{Small Clips, Big Gains: Learning Long-Range Refocused Temporal Information for Video Super-Resolution}},\n      author={Xingyu Zhou and Wei Long and Jingbo Lu and Shiyin Jiang and Weiyi You and Haifeng Wu and Shuhang Gu},\n      year={2025},\n      eprint={2505.02159},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2505.02159},\n}",
+    "scholarPaperUrl": "https://arxiv.org/abs/2505.02159",
+    "citationSources": [
+      "https://arxiv.org/abs/2505.02159",
+      "https://arxiv.org/bibtex/2505.02159"
+    ]
   },
   {
     "id": "pft",
@@ -457,9 +541,11 @@
       "https://arxiv.org/abs/2503.20337",
       "https://github.com/CVL-UESTC/PFT-SR",
       "https://openaccess.thecvf.com/content/CVPR2025/papers/Long_Progressive_Focused_Transformer_for_Single_Image_Super-Resolution_CVPR_2025_paper.pdf",
-      "https://ieeexplore.ieee.org/abstract/document/11094632/"
+      "https://ieeexplore.ieee.org/abstract/document/11094632/",
+      "https://openaccess.thecvf.com/content/CVPR2025/html/Long_Progressive_Focused_Transformer_for_Single_Image_Super-Resolution_CVPR_2025_paper.html",
+      "https://api.crossref.org/works/10.1109/cvpr52734.2025.00218"
     ],
-    "bibtex": "@inproceedings{long2025progressive,\n  title={Progressive Focused Transformer for Single Image Super-Resolution},\n  author={Long, Wei and Zhou, Xingyu and Zhang, Leheng and Gu, Shuhang},\n  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  year={2025},\n  url={https://arxiv.org/abs/2503.20337}\n}",
+    "bibtex": "@inproceedings{long2025progressive,\n  author={Long, Wei and Zhou, Xingyu and Zhang, Leheng and Gu, Shuhang},\n  title={{Progressive Focused Transformer for Single Image Super-Resolution}},\n  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n  month={June},\n  year={2025},\n  pages={2279--2288},\n  doi={10.1109/cvpr52734.2025.00218},\n  url={https://openaccess.thecvf.com/content/CVPR2025/html/Long_Progressive_Focused_Transformer_for_Single_Image_Super-Resolution_CVPR_2025_paper.html}\n}",
     "scholarTitle": "Progressive Focused Transformer for Single Image Super-Resolution",
     "scholarYear": 2025,
     "scholarVenue": "CVPR 2025 , 2025",
@@ -467,7 +553,12 @@
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:zYLM7Y9cAGgC",
     "scholarPublicationDate": "2025/3/26",
     "equalContribution": [],
-    "scholarPaperUrl": "https://ieeexplore.ieee.org/abstract/document/11094632/"
+    "scholarPaperUrl": "https://ieeexplore.ieee.org/abstract/document/11094632/",
+    "doi": "10.1109/cvpr52734.2025.00218",
+    "citationSources": [
+      "https://openaccess.thecvf.com/content/CVPR2025/html/Long_Progressive_Focused_Transformer_for_Single_Image_Super-Resolution_CVPR_2025_paper.html",
+      "https://api.crossref.org/works/10.1109/cvpr52734.2025.00218"
+    ]
   },
   {
     "year": 2024,
@@ -479,11 +570,14 @@
     "project": null,
     "sources": [
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:UeHWp8X0CEIC",
-      "https://www.sciencedirect.com/science/article/pii/S095070512400666X"
+      "https://www.sciencedirect.com/science/article/pii/S095070512400666X",
+      "https://api.crossref.org/works/10.1016/j.knosys.2024.112032",
+      "https://api.crossref.org/works/10.1016/j.knosys.2024.112032/transform/application/x-bibtex",
+      "https://doi.org/10.1016/j.knosys.2024.112032"
     ],
     "doi": "10.1016/j.knosys.2024.112032",
     "id": "mdmcr",
-    "title": "Multi-dimensional manifolds consistency regularization for semi-supervised remote sensing semantic segmentation",
+    "title": "Multi-Dimensional Manifolds Consistency Regularization for semi-supervised remote sensing semantic segmentation",
     "authors": [
       "Yujie Lu",
       "Yongjun Zhang",
@@ -498,43 +592,13 @@
     "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:UeHWp8X0CEIC",
     "scholarPublicationDate": "2024/9/5",
     "equalContribution": [],
-    "bibtex": "@article{mdmcr2024,\n  title={{Multi-dimensional manifolds consistency regularization for semi-supervised remote sensing semantic segmentation}},\n  author={Lu, Yujie and Zhang, Yongjun and Cui, Zhongwei and Long, Wei and Chen, Ziyang},\n  journal={Knowledge-Based Systems},\n  year={2024},\n  volume={299},\n  pages={112032},\n  doi={10.1016/j.knosys.2024.112032},\n  url={https://doi.org/10.1016/j.knosys.2024.112032}\n}",
-    "scholarPaperUrl": "https://www.sciencedirect.com/science/article/pii/S095070512400666X"
-  },
-  {
-    "year": 2024,
-    "venue": "CAAI Transactions on Intelligence Technology",
-    "category": "recognition",
-    "summary": "Virtual samples emphasizing medium-intensity pixels complement sparse representations for more robust face recognition.",
-    "paper": "https://doi.org/10.1049/cit2.12247",
-    "code": null,
-    "project": null,
-    "sources": [
-      "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:d1gkVwhDpl0C",
-      "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/cit2.12247",
-      "https://ietresearch.onlinelibrary.wiley.com/doi/abs/10.1049/cit2.12247"
-    ],
-    "doi": "10.1049/cit2.12247",
-    "id": "sparseface",
-    "title": "Sparse representation scheme with enhanced medium pixel intensity for face recognition",
-    "authors": [
-      "Xuexue Zhang",
-      "Yongjun Zhang",
-      "Zewei Wang",
-      "Wei Long",
-      "Weihao Gao",
-      "Bob Zhang"
-    ],
-    "scholarTitle": "Sparse representation scheme with enhanced medium pixel intensity for face recognition",
-    "scholarYear": 2024,
-    "scholarVenue": "CAAI Transactions on Intelligence Technology 9 (1), 116-127 , 2024",
-    "scholarCitationId": "CsVTBJoAAAAJ:d1gkVwhDpl0C",
-    "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:d1gkVwhDpl0C",
-    "scholarPublicationDate": "2024/2",
-    "equalContribution": [],
-    "yearNote": "First published online in June 2023; assigned to volume 9, issue 1 (2024).",
-    "bibtex": "@article{sparseface2024,\n  title={{Sparse representation scheme with enhanced medium pixel intensity for face recognition}},\n  author={Zhang, Xuexue and Zhang, Yongjun and Wang, Zewei and Long, Wei and Gao, Weihao and Zhang, Bob},\n  journal={CAAI Transactions on Intelligence Technology},\n  year={2024},\n  volume={9},\n  number={1},\n  pages={116--127},\n  doi={10.1049/cit2.12247},\n  url={https://doi.org/10.1049/cit2.12247}\n}",
-    "scholarPaperUrl": "https://ietresearch.onlinelibrary.wiley.com/doi/abs/10.1049/cit2.12247"
+    "bibtex": "@article{mdmcr2024,\n  title={{Multi-Dimensional Manifolds Consistency Regularization for semi-supervised remote sensing semantic segmentation}},\n  author={Lu, Yujie and Zhang, Yongjun and Cui, Zhongwei and Long, Wei and Chen, Ziyang},\n  journal={Knowledge-Based Systems},\n  year={2024},\n  volume={299},\n  pages={112032},\n  doi={10.1016/j.knosys.2024.112032},\n  url={https://doi.org/10.1016/j.knosys.2024.112032}\n}",
+    "scholarPaperUrl": "https://www.sciencedirect.com/science/article/pii/S095070512400666X",
+    "citationSources": [
+      "https://api.crossref.org/works/10.1016/j.knosys.2024.112032",
+      "https://api.crossref.org/works/10.1016/j.knosys.2024.112032/transform/application/x-bibtex",
+      "https://doi.org/10.1016/j.knosys.2024.112032"
+    ]
   },
   {
     "year": 2024,
@@ -548,7 +612,9 @@
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:qjMakFHDy7sC",
       "https://arxiv.org/abs/2404.06842",
       "https://github.com/ZYangChen/MoCha-Stereo",
-      "https://ieeexplore.ieee.org/abstract/document/10656914/"
+      "https://ieeexplore.ieee.org/abstract/document/10656914/",
+      "https://openaccess.thecvf.com/content/CVPR2024/html/Chen_MoCha-Stereo_Motif_Channel_Attention_Network_for_Stereo_Matching_CVPR_2024_paper.html",
+      "https://api.crossref.org/works/10.1109/cvpr52733.2024.02623"
     ],
     "id": "mocha",
     "title": "MoCha-Stereo: Motif Channel Attention Network for Stereo Matching",
@@ -572,8 +638,13 @@
       "Wei Long",
       "He Yao"
     ],
-    "bibtex": "@inproceedings{mocha2024,\n  title={{MoCha-Stereo: Motif Channel Attention Network for Stereo Matching}},\n  author={Chen, Ziyang and Long, Wei and Yao, He and Zhang, Yongjun and Wang, Bingshu and Qin, Yongbin and Wu, Jia},\n  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  year={2024},\n  pages={27768--27777},\n  url={https://arxiv.org/abs/2404.06842}\n}",
-    "scholarPaperUrl": "https://ieeexplore.ieee.org/abstract/document/10656914/"
+    "bibtex": "@inproceedings{mocha2024,\n  author={Chen, Ziyang and Long, Wei and Yao, He and Zhang, Yongjun and Wang, Bingshu and Qin, Yongbin and Wu, Jia},\n  title={{MoCha-Stereo: Motif Channel Attention Network for Stereo Matching}},\n  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n  month={June},\n  year={2024},\n  pages={27768--27777},\n  doi={10.1109/cvpr52733.2024.02623},\n  url={https://openaccess.thecvf.com/content/CVPR2024/html/Chen_MoCha-Stereo_Motif_Channel_Attention_Network_for_Stereo_Matching_CVPR_2024_paper.html}\n}",
+    "scholarPaperUrl": "https://ieeexplore.ieee.org/abstract/document/10656914/",
+    "doi": "10.1109/cvpr52733.2024.02623",
+    "citationSources": [
+      "https://openaccess.thecvf.com/content/CVPR2024/html/Chen_MoCha-Stereo_Motif_Channel_Attention_Network_for_Stereo_Matching_CVPR_2024_paper.html",
+      "https://api.crossref.org/works/10.1109/cvpr52733.2024.02623"
+    ]
   },
   {
     "year": 2023,
@@ -585,7 +656,10 @@
     "project": null,
     "sources": [
       "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:u-x6o8ySG0sC",
-      "https://arxiv.org/abs/2501.07984"
+      "https://arxiv.org/abs/2501.07984",
+      "https://api.crossref.org/works/10.1109/tgrs.2023.3276081",
+      "https://api.crossref.org/works/10.1109/tgrs.2023.3276081/transform/application/x-bibtex",
+      "https://doi.org/10.1109/TGRS.2023.3276081"
     ],
     "doi": "10.1109/TGRS.2023.3276081",
     "id": "tanet",
@@ -605,7 +679,12 @@
     "scholarPublicationDate": "2023/5/15",
     "equalContribution": [],
     "yearNote": "Published in IEEE TGRS in 2023; the arXiv copy was uploaded in January 2025.",
-    "bibtex": "@article{tanet2023,\n  title={{Threshold Attention Network for Semantic Segmentation of Remote Sensing Images}},\n  author={Long, Wei and Zhang, Yongjun and Cui, Zhongwei and Xu, Yujie and Zhang, Xuexue},\n  journal={IEEE Transactions on Geoscience and Remote Sensing},\n  year={2023},\n  doi={10.1109/TGRS.2023.3276081},\n  url={https://arxiv.org/abs/2501.07984}\n}",
-    "scholarPaperUrl": "https://arxiv.org/abs/2501.07984"
+    "bibtex": "@article{tanet2023,\n  title={{Threshold Attention Network for Semantic Segmentation of Remote Sensing Images}},\n  author={Long, Wei and Zhang, Yongjun and Cui, Zhongwei and Xu, Yujie and Zhang, Xuexue},\n  journal={IEEE Transactions on Geoscience and Remote Sensing},\n  year={2023},\n  volume={61},\n  pages={1--12},\n  doi={10.1109/TGRS.2023.3276081},\n  url={https://doi.org/10.1109/TGRS.2023.3276081}\n}",
+    "scholarPaperUrl": "https://arxiv.org/abs/2501.07984",
+    "citationSources": [
+      "https://api.crossref.org/works/10.1109/tgrs.2023.3276081",
+      "https://api.crossref.org/works/10.1109/tgrs.2023.3276081/transform/application/x-bibtex",
+      "https://doi.org/10.1109/TGRS.2023.3276081"
+    ]
   }
 ]
