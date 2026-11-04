@@ -103,10 +103,21 @@ news_html = '<section class="news" id="news" aria-labelledby="news-title"><h2 id
 news_nav = '<a href="#news">News</a>' if NEWS else ''
 links = ''
 if PROFILE.get('email'):
-    links += f'<a href="mailto:{e(PROFILE["email"])}">{e(PROFILE["email"])}</a>'
+    links += f'<a href="mailto:{e(PROFILE["email"])}">Email</a>'
 links += external(PROFILE['scholar'], 'Google Scholar') + external(PROFILE['github'], 'GitHub')
 if PROFILE.get('cv'):
     links += external(PROFILE['cv'], 'CV')
+biography_links = {
+    PROFILE[name_key]: PROFILE[url_key]
+    for name_key, url_key in [('group', 'groupUrl'), ('institution', 'institutionUrl'), ('advisorName', 'advisorUrl')]
+    if PROFILE.get(name_key) and PROFILE.get(url_key)
+}
+if biography_links:
+    pattern = '(' + '|'.join(re.escape(name) for name in sorted(biography_links, key=len, reverse=True)) + ')'
+    biography = ''.join(external(biography_links[part], part) if part in biography_links else e(part)
+                        for part in re.split(pattern, PROFILE['biography']))
+else:
+    biography = e(PROFILE['biography'])
 portrait = f'<img class="portrait" src="{url(PROFILE["photo"])}" alt="{e(PROFILE["name"])}" width="256" height="256">' if PROFILE.get('photo') else ''
 options = '<option value="all">All research areas</option>'
 for key, label in CATEGORIES.items():
@@ -123,7 +134,7 @@ equal_note = '<span>* Equal contribution.</span>' if any(p.get('equalContributio
 html = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{e(PROFILE['name'])} | UESTC</title><meta name="description" content="{e(description)}"><meta name="theme-color" content="#fdfdfb"><meta property="og:title" content="{e(PROFILE['name'])} | UESTC"><meta property="og:description" content="{e(description)}"><meta property="og:type" content="website">{canonical}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><script src="assets/site.js" defer></script><script type="application/ld+json">{jsonld}</script></head>
 <body id="top"><a class="skip-link" href="#main">Skip to content</a><header class="header container"><a class="brand" href="#top">{e(PROFILE['name'])}</a><nav aria-label="Main navigation"><a href="#about">About</a>{news_nav}<a href="#publications">Publications</a><a href="mailto:{e(PROFILE['email'])}">Email</a></nav></header>
-<main id="main" class="container"><section class="about" id="about" aria-labelledby="name"><div class="about-copy"><h1 id="name">{e(PROFILE['name'])}</h1><p class="affiliation">{e(PROFILE['role'])} · <a href="{url(PROFILE['institutionUrl'])}" target="_blank" rel="noopener noreferrer">{e(PROFILE['institutionShort'])}</a></p><p class="bio">{e(PROFILE['biography'])}</p><div class="profile-links">{links}</div></div>{portrait}</section>
+<main id="main" class="container"><section class="about" id="about" aria-labelledby="name"><div class="about-copy"><h1 id="name">{e(PROFILE['name'])}</h1><p class="affiliation">{e(PROFILE['role'])} · <a href="{url(PROFILE['institutionUrl'])}" target="_blank" rel="noopener noreferrer">{e(PROFILE['institutionShort'])}</a></p><p class="bio">{biography}</p><div class="profile-links">{links}</div></div>{portrait}</section>
 {news_html}<section class="publications" id="publications" aria-labelledby="publications-title"><div class="section-top"><h2 id="publications-title">Publications</h2><a class="scholar-link" href="{url(PROFILE['scholar'])}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></div><div class="publication-toolbar"><p class="publication-note">Grouped by authorship, then by year. {equal_note}</p><label class="topic-control" hidden><span class="sr-only">Filter publications by research area</span><select id="topic-filter">{options}</select></label></div><p class="result-count" id="result-count" role="status">{len(PAPERS)} papers</p><div id="publication-list">{''.join(groups)}</div><p id="empty-state" hidden>No publications in this research area.</p></section>
 </main><footer class="container"><span>{e(PROFILE['name'])} · {e(PROFILE['institutionShort'])}</span><span>Updated {e(PROFILE['updated'])}</span><a href="#top">Back to top ↑</a></footer></body></html>'''
 OUT.mkdir(exist_ok=True)
@@ -151,6 +162,7 @@ sources += '- Google Scholar exact profile: https://scholar.google.com/citations
 sources += '- Complete snapshot: 18 article rows, “Articles 1–18”, Show more disabled. The profile was retrieved through the configured proxy after a direct timeout.\n'
 sources += '- All Scholar entries are retained, including preprints and journal extensions. Formal venue year is used for grouping; original Scholar title, year, venue, and citation ID are retained in the data.\n'
 sources += '- Identity/group: https://github.com/gitlonglong. User confirmed PhD student at UESTC, GitHub gitlonglong, and public email lwsch5940@163.com.\n'
+sources += '- User confirmed advisor Shuhang Gu: https://shuhanggu.github.io/. The group website https://diggers.ai/ is linked by UESTC’s official article https://news.uestc.edu.cn/info/1005/38639.htm.\n'
 sources += '- Portrait is the photo from the user-supplied Scholar profile. Figure sources below are the authors’ official repositories.\n'
 sources += '- Descriptions are original summaries. Equal contribution is only marked when supported by Scholar or the authors’ repository. No citation statistics are reproduced.\n'
 sources += '- BibTeX omits unverified volume, page, and DOI fields.\n\n'

@@ -6,7 +6,7 @@
   "institutionShort": "UESTC",
   "institutionUrl": "https://en.uestc.edu.cn/",
   "location": "Chengdu, China",
-  "biography": "I am a Ph.D. student in the Data Intelligence Group at the University of Electronic Science and Technology of China. My research spans image restoration, 3D vision, and visual generative modeling.",
+  "biography": "I am a Ph.D. student in the Data Intelligence Group at the University of Electronic Science and Technology of China, advised by Shuhang Gu. My research spans image restoration, 3D vision, and visual generative modeling.",
   "researchIntro": "I study how visual models restore fine detail, reconstruct 3D scenes, and generate images. My recent work explores efficient transformers, generalizable Gaussian splatting, and autoregressive image modeling.",
   "email": "lwsch5940@163.com",
   "github": "https://github.com/gitlonglong",
@@ -14,5 +14,8 @@
   "photo": "assets/portrait.jpg",
   "cv": "",
   "siteUrl": "https://gitlonglong.github.io/",
-  "updated": "November 2026"
+  "updated": "November 2026",
+  "groupUrl": "https://diggers.ai/",
+  "advisorName": "Shuhang Gu",
+  "advisorUrl": "https://shuhanggu.github.io/"
 }

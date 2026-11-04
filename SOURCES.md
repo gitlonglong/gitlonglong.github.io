@@ -6,6 +6,7 @@ Verified 2026-11-04.
 - Complete snapshot: 18 article rows, “Articles 1–18”, Show more disabled. The profile was retrieved through the configured proxy after a direct timeout.
 - All Scholar entries are retained, including preprints and journal extensions. Formal venue year is used for grouping; original Scholar title, year, venue, and citation ID are retained in the data.
 - Identity/group: https://github.com/gitlonglong. User confirmed PhD student at UESTC, GitHub gitlonglong, and public email lwsch5940@163.com.
+- User confirmed advisor Shuhang Gu: https://shuhanggu.github.io/. The group website https://diggers.ai/ is linked by UESTC’s official article https://news.uestc.edu.cn/info/1005/38639.htm.
 - Portrait is the photo from the user-supplied Scholar profile. Figure sources below are the authors’ official repositories.
 - Descriptions are original summaries. Equal contribution is only marked when supported by Scholar or the authors’ repository. No citation statistics are reproduced.
 - BibTeX omits unverified volume, page, and DOI fields.

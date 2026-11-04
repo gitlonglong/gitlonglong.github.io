@@ -27,6 +27,8 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory dist
 | `data/profile.json` | 姓名、身份、单位、简介、联系方式与主页链接 |
 | `data/publications.json` | 论文标题、作者、年份、会议、简介及论文/代码/项目链接 |
 | `email` | 希望公开的联系邮箱；未提供时留空 |
+| `groupUrl`、`institutionUrl` | 简介中课题组与学校的链接 |
+| `advisorName`、`advisorUrl` | 导师姓名及个人主页；简介中的同名文本会自动加链接 |
 | `photo` | 个人照片的本地资源路径；未提供时留空 |
 | `cv` | 简历 PDF 的本地资源路径；未提供时留空 |
 | `siteUrl` | 正式上线后填写实际网站根地址 |
