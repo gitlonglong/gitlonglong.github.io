@@ -1,0 +1,47 @@
+[
+  {
+    "date": "2026-09",
+    "paperIds": [
+      "pftv2"
+    ],
+    "venue": "IJCV",
+    "sources": [
+      "https://link.springer.com/article/10.1007/s11263-026-03053-1"
+    ],
+    "evidenceNote": "Publisher article history explicitly states Accepted: 13 September 2026 (publication date is 03 October 2026).",
+    "labels": {
+      "pftv2": "PFTv2"
+    }
+  },
+  {
+    "date": "2026-01",
+    "paperIds": [
+      "tvqrap",
+      "mvar"
+    ],
+    "venue": "ICLR 2026",
+    "sources": [
+      "https://zhouxingyu13.github.io/",
+      "https://github.com/CVL-UESTC/MVAR"
+    ],
+    "evidenceNote": "Coauthor Xingyu Zhou News explicitly dates TVQ&RAP acceptance January 2026; official MVAR README has a 2026-01-25 acceptance announcement.",
+    "labels": {
+      "tvqrap": "TVQ&RAP",
+      "mvar": "MVAR"
+    }
+  },
+  {
+    "date": "2025-02",
+    "paperIds": [
+      "pft"
+    ],
+    "venue": "CVPR 2025",
+    "sources": [
+      "https://zhouxingyu13.github.io/"
+    ],
+    "evidenceNote": "Coauthor Xingyu Zhou News explicitly dates PFT-SR acceptance February 2025.",
+    "labels": {
+      "pft": "PFT-SR"
+    }
+  }
+]

@@ -13,6 +13,11 @@
     document.querySelectorAll('.year-group').forEach(group => {
       group.hidden = ![...group.querySelectorAll('.paper')].some(paper => !paper.hidden);
     });
+    document.querySelectorAll('.authorship-group').forEach(group => {
+      const count = [...group.querySelectorAll('.paper')].filter(paper => !paper.hidden).length;
+      group.hidden = count === 0;
+      group.querySelector('.authorship-count').textContent = `${count} ${count === 1 ? 'paper' : 'papers'}`;
+    });
     document.querySelector('#result-count').textContent = `${visible} ${visible === 1 ? 'paper' : 'papers'}`;
     document.querySelector('#empty-state').hidden = visible !== 0;
   });

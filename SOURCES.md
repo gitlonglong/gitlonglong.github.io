@@ -10,6 +10,18 @@ Verified 2026-11-04.
 - Descriptions are original summaries. Equal contribution is only marked when supported by Scholar or the authors’ repository. No citation statistics are reproduced.
 - BibTeX omits unverified volume, page, and DOI fields.
 
+- Authorship groups use author order and verified equal-contribution marks; co-first authors share the leading author’s contribution group.
+
+## Acceptance news
+
+- 2026-09 / IJCV / pftv2: Publisher article history explicitly states Accepted: 13 September 2026 (publication date is 03 October 2026).
+  - https://link.springer.com/article/10.1007/s11263-026-03053-1
+- 2026-01 / ICLR 2026 / tvqrap, mvar: Coauthor Xingyu Zhou News explicitly dates TVQ&RAP acceptance January 2026; official MVAR README has a 2026-01-25 acceptance announcement.
+  - https://zhouxingyu13.github.io/
+  - https://github.com/CVL-UESTC/MVAR
+- 2025-02 / CVPR 2025 / pft: Coauthor Xingyu Zhou News explicitly dates PFT-SR acceptance February 2025.
+  - https://zhouxingyu13.github.io/
+
 ## Progressive Focused Transformer for Image Restoration
 
 - https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:kNdYIx-mwKoC

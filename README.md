@@ -51,9 +51,13 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory dist
 
 2026-11-04 读取的 Scholar 页面显示 `Articles 1–18`，且 `Show more` 按钮禁用；已核对全部 18 个详情页。快照记录在 `data/scholar-snapshot.json`，原始论文标题、年份、作者与 Scholar ID 保留在数据中。
 
-主页按正式发表年份排列；例如 ICLR 2026 的论文在 Scholar 上可能记为 2025 年预印本，页面另显示初次发表年份。PFT 的 CVPR 2025 版本与 IJCV 2026 扩展版分别列出，未经核实接收的预印本仅标为 arXiv。已确认的共同一作用 `*` 标注。
+主页先分为一作／共同一作和其他作者位次两组，各组内按正式发表年份排列。分组由 `authors` 的作者顺序和 `equalContribution` 的已核实共同一作信息决定；与第一位作者共享贡献标记才会归入共同一作，不把普通第二作者当作共同一作。
+
+例如 ICLR 2026 的论文在 Scholar 上可能记为 2025 年预印本，页面另显示初次发表年份。PFT 的 CVPR 2025 版本与 IJCV 2026 扩展版分别列出，未经核实接收的预印本仅标为 arXiv。已确认的共同一作用 `*` 标注。
 
 新增论文时编辑 `data/publications.json`，然后运行 `python3 scripts/build.py` 和 `python3 scripts/check.py`。如重新同步 Scholar，请同时更新快照；检查脚本会防止误删已收录的 Scholar 条目。
+
+Publications 前的 **News** 来自 `data/news.json`。每项包含接收月份 `date`（`YYYY-MM`）、关联论文 `paperIds`、显示简称 `labels`、会议／期刊 `venue` 和日期依据 `sources`。同月同会议的论文可以合为一条动态。仅使用可核实或本人确认的接收月份，不把 arXiv 上传时间或正式出版时间当作接收时间。
 
 ## GitHub Pages 发布与更新
 

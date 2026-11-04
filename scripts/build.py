@@ -4,6 +4,7 @@ from pathlib import Path
 from html import escape
 from urllib.parse import urlparse
 from itertools import groupby
+from datetime import datetime
 import json
 import re
 
@@ -11,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist'
 PROFILE = json.loads((ROOT / 'data/profile.json').read_text())
 PAPERS = json.loads((ROOT / 'data/publications.json').read_text())
+NEWS = json.loads((ROOT / 'data/news.json').read_text())
 FIGURES = {p['id']: p for p in json.loads((ROOT / 'data/figure-sources.json').read_text()) if p.get('image')}
 e = lambda value: escape(str(value), quote=True)
 CATEGORIES = {'3d': '3D vision', 'generation': 'Visual generation', 'restoration': 'Image restoration', 'compression': 'Image compression', 'remote-sensing': 'Remote sensing', 'recognition': 'Recognition & representations', 'detection': 'Object detection', 'perception': 'Visual perception', 'attention': 'Visual representations'}
@@ -25,6 +27,16 @@ def url(value):
 
 def external(href, label, cls=''):
     return f'<a class="{e(cls)}" href="{url(href)}" target="_blank" rel="noopener noreferrer">{e(label)}</a>'
+
+
+def authorship_role(p):
+    names = [author.rstrip('*').strip() for author in p['authors']]
+    equal = set(p.get('equalContribution', []))
+    equal.update(author.rstrip('*').strip() for author in p['authors'] if author.endswith('*'))
+    # Equal contribution with the leading author is co-first authorship.
+    if PROFILE['name'] in equal and names[0] in equal and len(equal) > 1:
+        return 'co-first'
+    return 'first' if names[0] == PROFILE['name'] else 'other'
 
 
 def paper_html(p):
@@ -52,7 +64,10 @@ def paper_html(p):
         visual = f'<div class="paper-aside" aria-hidden="true"><span>{e(p["venue"])}</span><span>{p["year"]}</span></div>'
     scholar_year = p.get('scholarYear', p['year'])
     date_note = f'<span class="online-year">First listed {scholar_year}</span>' if scholar_year and str(scholar_year) != str(p['year']) else ''
-    return f'''<article class="paper" data-category="{e(p['category'])}" id="paper-{e(p['id'])}" aria-labelledby="title-{e(p['id'])}">{visual}<div class="paper-body"><h4 id="title-{e(p['id'])}"><a href="{url(p['paper'])}" target="_blank" rel="noopener noreferrer">{e(p['title'])}</a></h4><p class="authors">{', '.join(authors)}</p><p class="paper-meta"><span class="venue">{e(p['venue'])}</span><span>{p['year']}</span>{date_note}</p><p class="paper-summary">{e(p.get('summary', ''))}</p><div class="paper-links">{links}</div></div></article>'''
+    role = authorship_role(p)
+    role_label = {'first': 'First author', 'co-first': 'Co-first author'}.get(role)
+    role_tag = f'<span class="author-role">{role_label}</span>' if role_label else ''
+    return f'''<article class="paper" data-category="{e(p['category'])}" data-authorship="{role}" id="paper-{e(p['id'])}" aria-labelledby="title-{e(p['id'])}">{visual}<div class="paper-body"><h5 class="paper-title" id="title-{e(p['id'])}"><a href="{url(p['paper'])}" target="_blank" rel="noopener noreferrer">{e(p['title'])}</a></h5><p class="authors">{', '.join(authors)}</p><p class="paper-meta"><span class="venue">{e(p['venue'])}</span><span>{p['year']}</span>{role_tag}{date_note}</p><p class="paper-summary">{e(p.get('summary', ''))}</p><div class="paper-links">{links}</div></div></article>'''
 
 
 assert PAPERS, 'Add at least one publication'
@@ -63,8 +78,29 @@ for p in PAPERS:
     assert isinstance(p['year'], int)
 PAPERS = sorted(PAPERS, key=lambda p: p['year'], reverse=True)
 groups = []
-for year, works in groupby(PAPERS, key=lambda p: p['year']):
-    groups.append(f'<section class="year-group" aria-labelledby="year-{year}"><h3 class="year-heading" id="year-{year}">{year}</h3><div class="year-papers">' + ''.join(paper_html(p) for p in works) + '</div></section>')
+for group_id, title in [('lead', 'First / Co-first Author'), ('other', 'Other Co-authored Papers')]:
+    group_papers = [p for p in PAPERS if (authorship_role(p) != 'other') == (group_id == 'lead')]
+    if not group_papers:
+        continue
+    years = []
+    for year, works in groupby(group_papers, key=lambda p: p['year']):
+        year_id = f'year-{group_id}-{year}'
+        years.append(f'<section class="year-group" aria-labelledby="{year_id}"><h4 class="year-heading" id="{year_id}">{year}</h4><div class="year-papers">' + ''.join(paper_html(p) for p in works) + '</div></section>')
+    groups.append(f'<section class="authorship-group" data-authorship-group="{group_id}" aria-labelledby="authorship-{group_id}"><div class="authorship-heading"><h3 id="authorship-{group_id}">{title}</h3><span class="authorship-count">{len(group_papers)} papers</span></div>' + ''.join(years) + '</section>')
+papers_by_id = {p['id']: p for p in PAPERS}
+news_rows = []
+for item in sorted(NEWS, key=lambda item: item['date'], reverse=True):
+    datetime.strptime(item['date'], '%Y-%m')
+    assert item['paperIds'] and len(set(item['paperIds'])) == len(item['paperIds'])
+    assert item.get('sources'), 'Acceptance news needs a source for its date'
+    news_links = [external(papers_by_id[pid]['paper'], item['labels'][pid]) for pid in item['paperIds']]
+    paper_links = news_links[0] if len(news_links) == 1 else ', '.join(news_links[:-1]) + ' and ' + news_links[-1]
+    count = len(news_links)
+    subject = 'One paper' if count == 1 else ('Two papers' if count == 2 else f'{count} papers')
+    verb = 'is' if count == 1 else 'are'
+    news_rows.append(f'<li><time datetime="{item["date"]}">[{item["date"]}]</time><span>{subject} {paper_links} {verb} accepted to {e(item["venue"])}.</span></li>')
+news_html = '<section class="news" id="news" aria-labelledby="news-title"><h2 id="news-title">News</h2><ul class="news-list">' + ''.join(news_rows) + '</ul></section>' if NEWS else ''
+news_nav = '<a href="#news">News</a>' if NEWS else ''
 links = ''
 if PROFILE.get('email'):
     links += f'<a href="mailto:{e(PROFILE["email"])}">{e(PROFILE["email"])}</a>'
@@ -86,9 +122,9 @@ jsonld = json.dumps(schema, ensure_ascii=False).replace('<', '\\u003c')
 equal_note = '<span>* Equal contribution.</span>' if any(p.get('equalContribution') or any(a.endswith('*') for a in p['authors']) for p in PAPERS) else ''
 html = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{e(PROFILE['name'])} | UESTC</title><meta name="description" content="{e(description)}"><meta name="theme-color" content="#fdfdfb"><meta property="og:title" content="{e(PROFILE['name'])} | UESTC"><meta property="og:description" content="{e(description)}"><meta property="og:type" content="website">{canonical}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><script src="assets/site.js" defer></script><script type="application/ld+json">{jsonld}</script></head>
-<body id="top"><a class="skip-link" href="#main">Skip to content</a><header class="header container"><a class="brand" href="#top">{e(PROFILE['name'])}</a><nav aria-label="Main navigation"><a href="#about">About</a><a href="#publications">Publications</a><a href="mailto:{e(PROFILE['email'])}">Email</a></nav></header>
+<body id="top"><a class="skip-link" href="#main">Skip to content</a><header class="header container"><a class="brand" href="#top">{e(PROFILE['name'])}</a><nav aria-label="Main navigation"><a href="#about">About</a>{news_nav}<a href="#publications">Publications</a><a href="mailto:{e(PROFILE['email'])}">Email</a></nav></header>
 <main id="main" class="container"><section class="about" id="about" aria-labelledby="name"><div class="about-copy"><h1 id="name">{e(PROFILE['name'])}</h1><p class="affiliation">{e(PROFILE['role'])} · <a href="{url(PROFILE['institutionUrl'])}" target="_blank" rel="noopener noreferrer">{e(PROFILE['institutionShort'])}</a></p><p class="bio">{e(PROFILE['biography'])}</p><div class="profile-links">{links}</div></div>{portrait}</section>
-<section class="publications" id="publications" aria-labelledby="publications-title"><div class="section-top"><h2 id="publications-title">Publications</h2><a class="scholar-link" href="{url(PROFILE['scholar'])}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></div><div class="publication-toolbar"><p class="publication-note">Journal and conference papers, and preprints. {equal_note}</p><label class="topic-control" hidden><span class="sr-only">Filter publications by research area</span><select id="topic-filter">{options}</select></label></div><p class="result-count" id="result-count" role="status">{len(PAPERS)} papers</p><div id="publication-list">{''.join(groups)}</div><p id="empty-state" hidden>No publications in this research area.</p></section>
+{news_html}<section class="publications" id="publications" aria-labelledby="publications-title"><div class="section-top"><h2 id="publications-title">Publications</h2><a class="scholar-link" href="{url(PROFILE['scholar'])}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></div><div class="publication-toolbar"><p class="publication-note">Grouped by authorship, then by year. {equal_note}</p><label class="topic-control" hidden><span class="sr-only">Filter publications by research area</span><select id="topic-filter">{options}</select></label></div><p class="result-count" id="result-count" role="status">{len(PAPERS)} papers</p><div id="publication-list">{''.join(groups)}</div><p id="empty-state" hidden>No publications in this research area.</p></section>
 </main><footer class="container"><span>{e(PROFILE['name'])} · {e(PROFILE['institutionShort'])}</span><span>Updated {e(PROFILE['updated'])}</span><a href="#top">Back to top ↑</a></footer></body></html>'''
 OUT.mkdir(exist_ok=True)
 (OUT / 'index.html').write_text(html, encoding='utf-8')
@@ -118,6 +154,12 @@ sources += '- Identity/group: https://github.com/gitlonglong. User confirmed PhD
 sources += '- Portrait is the photo from the user-supplied Scholar profile. Figure sources below are the authors’ official repositories.\n'
 sources += '- Descriptions are original summaries. Equal contribution is only marked when supported by Scholar or the authors’ repository. No citation statistics are reproduced.\n'
 sources += '- BibTeX omits unverified volume, page, and DOI fields.\n\n'
+sources += '- Authorship groups use author order and verified equal-contribution marks; co-first authors share the leading author’s contribution group.\n\n'
+sources += '## Acceptance news\n\n'
+for item in NEWS:
+    sources += f'- {item["date"]} / {item["venue"]} / {", ".join(item["paperIds"])}: {item["evidenceNote"]}\n'
+    sources += ''.join(f'  - {source}\n' for source in item['sources'])
+sources += '\n'
 for p in PAPERS:
     sources += f'## {p["title"]}\n\n' + '\n'.join(f'- {s}' for s in p['sources']) + '\n'
     if p['id'] in FIGURES:
