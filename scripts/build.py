@@ -1,0 +1,117 @@
+#!/usr/bin/env python3
+"""Build a dependency-free academic homepage from editable JSON files."""
+from pathlib import Path
+from html import escape
+from urllib.parse import urlparse
+from itertools import groupby
+import json
+import re
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / 'dist'
+PROFILE = json.loads((ROOT / 'data/profile.json').read_text())
+PAPERS = json.loads((ROOT / 'data/publications.json').read_text())
+FIGURES = {p['id']: p for p in json.loads((ROOT / 'data/figure-sources.json').read_text()) if p.get('image')}
+e = lambda value: escape(str(value), quote=True)
+CATEGORIES = {'3d': '3D vision', 'generation': 'Visual generation', 'restoration': 'Image restoration', 'compression': 'Image compression', 'remote-sensing': 'Remote sensing', 'recognition': 'Recognition & representations', 'detection': 'Object detection', 'perception': 'Visual perception', 'attention': 'Visual representations'}
+
+
+def url(value):
+    parsed = urlparse(value)
+    if parsed.scheme not in ('', 'https', 'http', 'mailto') or value.startswith('//'):
+        raise ValueError(f'Unsupported URL: {value}')
+    return e(value)
+
+
+def external(href, label, cls=''):
+    return f'<a class="{e(cls)}" href="{url(href)}" target="_blank" rel="noopener noreferrer">{e(label)}</a>'
+
+
+def paper_html(p):
+    equal = p.get('equalContribution', [])
+    authors = []
+    for author in p['authors']:
+        name = author.rstrip('*').strip()
+        label = e(name)
+        if name == PROFILE['name']:
+            label = '<strong>' + label + '</strong>'
+        if author.endswith('*') or name in equal:
+            label += '<sup>*</sup>'
+        authors.append(label)
+    links = external(p['paper'], 'Paper')
+    for field, label in [('code', 'Code'), ('project', 'Project')]:
+        if p.get(field):
+            links += external(p[field], label)
+    if p.get('bibtex'):
+        links += f'''<details class="citation"><summary aria-label="BibTeX citation for {e(p['title'])}">BibTeX</summary><div class="citation-panel"><pre>{e(p['bibtex'])}</pre><button type="button" class="copy-button" hidden>Copy citation</button><span class="copy-status" role="status"></span></div></details>'''
+    fig = FIGURES.get(p['id'])
+    visual = ''
+    if fig:
+        visual = f'<a class="paper-visual" href="{url(p["paper"])}" target="_blank" rel="noopener noreferrer" aria-label="Read {e(p["title"])}"><img src="{url(fig["image"])}" alt="Figure from {e(p["title"])}" width="{fig["width"]}" height="{fig["height"]}" loading="lazy"></a>'
+    else:
+        visual = f'<div class="paper-aside" aria-hidden="true"><span>{e(p["venue"])}</span><span>{p["year"]}</span></div>'
+    scholar_year = p.get('scholarYear', p['year'])
+    date_note = f'<span class="online-year">First listed {scholar_year}</span>' if scholar_year and str(scholar_year) != str(p['year']) else ''
+    return f'''<article class="paper" data-category="{e(p['category'])}" id="paper-{e(p['id'])}" aria-labelledby="title-{e(p['id'])}">{visual}<div class="paper-body"><h4 id="title-{e(p['id'])}"><a href="{url(p['paper'])}" target="_blank" rel="noopener noreferrer">{e(p['title'])}</a></h4><p class="authors">{', '.join(authors)}</p><p class="paper-meta"><span class="venue">{e(p['venue'])}</span><span>{p['year']}</span>{date_note}</p><p class="paper-summary">{e(p.get('summary', ''))}</p><div class="paper-links">{links}</div></div></article>'''
+
+
+assert PAPERS, 'Add at least one publication'
+assert len({p['id'] for p in PAPERS}) == len(PAPERS), 'Duplicate publication IDs'
+for p in PAPERS:
+    assert re.fullmatch(r'[a-z0-9-]+', p['id']), 'Use URL-safe publication IDs'
+    assert p['category'] in CATEGORIES, p['category']
+    assert isinstance(p['year'], int)
+PAPERS = sorted(PAPERS, key=lambda p: p['year'], reverse=True)
+groups = []
+for year, works in groupby(PAPERS, key=lambda p: p['year']):
+    groups.append(f'<section class="year-group" aria-labelledby="year-{year}"><h3 class="year-heading" id="year-{year}">{year}</h3><div class="year-papers">' + ''.join(paper_html(p) for p in works) + '</div></section>')
+links = ''
+if PROFILE.get('email'):
+    links += f'<a href="mailto:{e(PROFILE["email"])}">{e(PROFILE["email"])}</a>'
+links += external(PROFILE['scholar'], 'Google Scholar') + external(PROFILE['github'], 'GitHub')
+if PROFILE.get('cv'):
+    links += external(PROFILE['cv'], 'CV')
+portrait = f'<img class="portrait" src="{url(PROFILE["photo"])}" alt="{e(PROFILE["name"])}" width="256" height="256">' if PROFILE.get('photo') else ''
+options = '<option value="all">All research areas</option>'
+for key, label in CATEGORIES.items():
+    if any(p['category'] == key for p in PAPERS):
+        options += f'<option value="{key}">{label}</option>'
+description = f'{PROFILE["name"]}, Ph.D. student at UESTC. Publications and research in computer vision, image restoration, and 3D vision.'
+schema = {'@context': 'https://schema.org', '@type': 'Person', 'name': PROFILE['name'], 'jobTitle': PROFILE['role'], 'affiliation': {'@type': 'Organization', 'name': PROFILE['institution']}, 'sameAs': [PROFILE['scholar'], PROFILE['github']]}
+canonical = ''
+if PROFILE.get('siteUrl'):
+    schema['url'] = PROFILE['siteUrl']
+    canonical = f'<link rel="canonical" href="{url(PROFILE["siteUrl"])}"><meta property="og:url" content="{url(PROFILE["siteUrl"])}">'
+jsonld = json.dumps(schema, ensure_ascii=False).replace('<', '\\u003c')
+equal_note = '<span>* Equal contribution.</span>' if any(p.get('equalContribution') or any(a.endswith('*') for a in p['authors']) for p in PAPERS) else ''
+html = f'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{e(PROFILE['name'])} | UESTC</title><meta name="description" content="{e(description)}"><meta name="theme-color" content="#fdfdfb"><meta property="og:title" content="{e(PROFILE['name'])} | UESTC"><meta property="og:description" content="{e(description)}"><meta property="og:type" content="website">{canonical}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><script src="assets/site.js" defer></script><script type="application/ld+json">{jsonld}</script></head>
+<body id="top"><a class="skip-link" href="#main">Skip to content</a><header class="header container"><a class="brand" href="#top">{e(PROFILE['name'])}</a><nav aria-label="Main navigation"><a href="#about">About</a><a href="#publications">Publications</a><a href="mailto:{e(PROFILE['email'])}">Email</a></nav></header>
+<main id="main" class="container"><section class="about" id="about" aria-labelledby="name"><div class="about-copy"><h1 id="name">{e(PROFILE['name'])}</h1><p class="affiliation">{e(PROFILE['role'])} · <a href="{url(PROFILE['institutionUrl'])}" target="_blank" rel="noopener noreferrer">{e(PROFILE['institutionShort'])}</a></p><p class="bio">{e(PROFILE['biography'])}</p><div class="profile-links">{links}</div></div>{portrait}</section>
+<section class="publications" id="publications" aria-labelledby="publications-title"><div class="section-top"><h2 id="publications-title">Publications</h2><a class="scholar-link" href="{url(PROFILE['scholar'])}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></div><div class="publication-toolbar"><p class="publication-note">Journal and conference papers, and preprints. {equal_note}</p><label class="topic-control" hidden><span class="sr-only">Filter publications by research area</span><select id="topic-filter">{options}</select></label></div><p class="result-count" id="result-count" role="status">{len(PAPERS)} papers</p><div id="publication-list">{''.join(groups)}</div><p id="empty-state" hidden>No publications in this research area.</p></section>
+</main><footer class="container"><span>{e(PROFILE['name'])} · {e(PROFILE['institutionShort'])}</span><span>Updated {e(PROFILE['updated'])}</span><a href="#top">Back to top ↑</a></footer></body></html>'''
+OUT.mkdir(exist_ok=True)
+(OUT / 'index.html').write_text(html, encoding='utf-8')
+(OUT / '.nojekyll').touch()
+(OUT / 'publications.bib').write_text('\n\n'.join(p['bibtex'] for p in PAPERS if p.get('bibtex')) + '\n')
+if PROFILE.get('siteUrl'):
+    (OUT / 'sitemap.xml').write_text(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>{e(PROFILE["siteUrl"])}</loc></url></urlset>')
+    (OUT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {PROFILE["siteUrl"].rstrip("/")}/sitemap.xml\n')
+else:
+    (OUT / 'sitemap.xml').unlink(missing_ok=True)
+    (OUT / 'robots.txt').write_text('User-agent: *\nAllow: /\n')
+sources = '# Content sources\n\nVerified 2026-11-04.\n\n'
+sources += '- Google Scholar exact profile: https://scholar.google.com/citations?user=CsVTBJoAAAAJ&hl=en&pagesize=100\n'
+sources += '- Complete snapshot: 18 article rows, “Articles 1–18”, Show more disabled. The profile was retrieved through the configured proxy after a direct timeout.\n'
+sources += '- All Scholar entries are retained, including preprints and journal extensions. Formal venue year is used for grouping; original Scholar title, year, venue, and citation ID are retained in the data.\n'
+sources += '- Identity/group: https://github.com/gitlonglong. User confirmed PhD student at UESTC, GitHub gitlonglong, and public email lwsch5940@163.com.\n'
+sources += '- Portrait is the photo from the user-supplied Scholar profile. Figure sources below are the authors’ official repositories.\n'
+sources += '- Descriptions are original summaries. Equal contribution is only marked when supported by Scholar or the authors’ repository. No citation statistics are reproduced.\n'
+sources += '- BibTeX omits unverified volume, page, and DOI fields.\n\n'
+for p in PAPERS:
+    sources += f'## {p["title"]}\n\n' + '\n'.join(f'- {s}' for s in p['sources']) + '\n'
+    if p['id'] in FIGURES:
+        sources += f'- Figure: {FIGURES[p["id"]]["source"]}\n'
+    sources += '\n'
+(ROOT / 'SOURCES.md').write_text(sources)
+print(f'Built {OUT / "index.html"} with {len(PAPERS)} publications.')

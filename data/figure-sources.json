@@ -1,0 +1,58 @@
+[
+  {
+    "id": "idesplat",
+    "image": "assets/papers/idesplat.webp",
+    "source": "https://github.com/CVL-UESTC/IDESplat/blob/HEAD/figures/IDESplat_m.png",
+    "width": 800,
+    "height": 213
+  },
+  {
+    "id": "rdvq",
+    "image": "assets/papers/rdvq.webp",
+    "source": "https://github.com/CVL-UESTC/RDVQ/blob/HEAD/assets/visual.jpg",
+    "width": 800,
+    "height": 331
+  },
+  {
+    "id": "atd",
+    "image": "assets/papers/atd.webp",
+    "source": "https://github.com/CVL-UESTC/Adaptive-Token-Dictionary/blob/HEAD/figures/attention.png",
+    "width": 800,
+    "height": 219
+  },
+  {
+    "id": "mvar",
+    "image": "assets/papers/mvar.webp",
+    "source": "https://github.com/CVL-UESTC/MVAR/blob/HEAD/asset/intro_3.png",
+    "width": 800,
+    "height": 247
+  },
+  {
+    "id": "tvqrap",
+    "image": "assets/papers/tvqrap.webp",
+    "source": "https://github.com/CVL-UESTC/TVQ-RAP/blob/HEAD/assert/vis.png",
+    "width": 800,
+    "height": 287
+  },
+  {
+    "id": "pft",
+    "image": "assets/papers/pft.webp",
+    "source": "https://github.com/CVL-UESTC/PFT-SR/blob/HEAD/figures/pft_m.png",
+    "width": 800,
+    "height": 445
+  },
+  {
+    "id": "pixsgr",
+    "image": "assets/papers/pixsgr.webp",
+    "source": "https://github.com/CVL-UESTC/PixSGR/blob/HEAD/asset/framework.png",
+    "width": 800,
+    "height": 407
+  },
+  {
+    "id": "iet",
+    "image": "assets/papers/iet.webp",
+    "source": "https://github.com/CVL-UESTC/IET/blob/HEAD/figures/attention.png",
+    "width": 800,
+    "height": 216
+  }
+]
