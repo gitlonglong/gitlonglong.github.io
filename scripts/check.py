@@ -63,4 +63,15 @@ for svg in (DIST / 'assets').glob('*.svg'):
 assert '<meta name="description"' in html
 assert 'application/ld+json' in html
 assert 'id="topic-filter"' in html
+root_html = (ROOT / 'index.html').read_text()
+expected_root = html.replace('href="assets/', 'href="dist/assets/').replace('src="assets/', 'src="dist/assets/')
+assert root_html == expected_root, 'Root publication entry differs from dist; run build.py'
+root_page = Page()
+root_page.feed(root_html)
+for ref in root_page.refs:
+    parsed = urlparse(ref)
+    if not parsed.scheme and not parsed.netloc and parsed.path:
+        target = (ROOT / unquote(parsed.path)).resolve()
+        assert target.is_relative_to(ROOT.resolve()) and target.is_file(), f'Missing root asset: {ref}'
+assert (ROOT / '.nojekyll').is_file(), 'Branch publishing requires .nojekyll'
 print(f'PASS: {page.articles} publications; {len(page.refs)} references; all local assets, anchors, SVGs and required metadata.')

@@ -100,6 +100,16 @@ if PROFILE.get('siteUrl'):
 else:
     (OUT / 'sitemap.xml').unlink(missing_ok=True)
     (OUT / 'robots.txt').write_text('User-agent: *\nAllow: /\n')
+# The user site publishes main / (root). Keep a root entry with paths pointing
+# at the same assets, while dist remains independently previewable/exportable.
+root_html = html.replace('href="assets/', 'href="dist/assets/').replace('src="assets/', 'src="dist/assets/')
+(ROOT / 'index.html').write_text(root_html, encoding='utf-8')
+(ROOT / '.nojekyll').touch()
+(ROOT / 'robots.txt').write_text((OUT / 'robots.txt').read_text())
+if (OUT / 'sitemap.xml').exists():
+    (ROOT / 'sitemap.xml').write_text((OUT / 'sitemap.xml').read_text())
+else:
+    (ROOT / 'sitemap.xml').unlink(missing_ok=True)
 sources = '# Content sources\n\nVerified 2026-11-04.\n\n'
 sources += '- Google Scholar exact profile: https://scholar.google.com/citations?user=CsVTBJoAAAAJ&hl=en&pagesize=100\n'
 sources += '- Complete snapshot: 18 article rows, “Articles 1–18”, Show more disabled. The profile was retrieved through the configured proxy after a direct timeout.\n'

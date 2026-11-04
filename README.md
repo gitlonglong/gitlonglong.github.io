@@ -8,10 +8,11 @@
 
 ```bash
 python3 scripts/build.py
+python3 scripts/check.py
 python3 -m http.server 8766 --bind 127.0.0.1 --directory dist
 ```
 
-然后打开 <http://localhost:8766>。修改资料后重新运行第一条命令并刷新页面；`Ctrl+C` 停止服务器。如果端口已被其他项目占用，请换一个端口，不要停止其他项目的服务。
+然后打开 <http://localhost:8766>。修改资料后重新生成并检查，再刷新页面；`Ctrl+C` 停止服务器。如果端口已被其他项目占用，请换一个端口，不要停止其他项目的服务。
 
 也可以直接用浏览器打开 `dist/index.html`，无需启动服务器或联网。页面正文、论文筛选和 BibTeX 展开都可离线使用；如果浏览器不允许复制到剪贴板，复制按钮会选中文本，按 `Ctrl+C` / `Cmd+C` 即可。
 
@@ -19,7 +20,7 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory dist
 
 ## 更新个人资料
 
-编辑 `data/profile.json` 和 `data/publications.json`，然后重新生成网站。不要直接修改生成的 `dist/index.html`，下次生成会覆盖它。
+编辑 `data/profile.json` 和 `data/publications.json`，然后重新生成网站。构建脚本同时生成本地预览用的 `dist/index.html` 和 GitHub Pages 用的根目录 `index.html`；不要直接修改这两个生成文件，下次生成会覆盖它们。
 
 | 文件或字段 | 用途 |
 | --- | --- |
@@ -30,6 +31,7 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory dist
 | `cv` | 简历 PDF 的本地资源路径；未提供时留空 |
 | `siteUrl` | 正式上线后填写实际网站根地址 |
 | `dist/` | 可直接部署的静态网站 |
+| 根目录 `index.html` | GitHub Pages 的入口，引用 `dist/assets/` 下的资源 |
 
 照片可放在 `dist/assets/portrait.jpg`，并把 `photo` 填为 `assets/portrait.jpg`；简历同理放在 `dist/assets/cv.pdf`，`cv` 填为 `assets/cv.pdf`。两项为空时自动隐藏。当前头像来自本人 Scholar，论文配图来自作者官方仓库；来源见 `data/figure-sources.json`。没有真实配图的论文使用纯文字排版。
 
@@ -53,18 +55,25 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory dist
 
 新增论文时编辑 `data/publications.json`，然后运行 `python3 scripts/build.py` 和 `python3 scripts/check.py`。如重新同步 Scholar，请同时更新快照；检查脚本会防止误删已收录的 Scholar 条目。
 
-## 免费上线到 GitHub Pages
+## GitHub Pages 发布与更新
 
-**不需要申请域名，也不需要购买服务器。** GitHub 免费账号可用公开仓库托管 GitHub Pages。若使用 `gitlonglong` 账号，个人主页仓库命名为 `gitlonglong.github.io`，发布地址将为 <https://gitlonglong.github.io/>。其他账号则把两处用户名一起替换。[GitHub 官方创建指南](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
+**不需要申请域名，也不需要购买服务器。** 已创建公开仓库 [gitlonglong/gitlonglong.github.io](https://github.com/gitlonglong/gitlonglong.github.io)，主页地址为 <https://gitlonglong.github.io/>。GitHub 免费账号可用公开仓库托管 GitHub Pages。[GitHub 官方创建指南](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
 
-1. 登录 GitHub，创建公开仓库 `gitlonglong.github.io`。如果该仓库已经存在，先保留并检查已有内容。
-2. 将本项目源码上传到仓库的 `main` 分支，包括 `data/`、`scripts/`、静态资源和 `.github/workflows/` 中的部署工作流。使用 Git 上传可确保隐藏的 `.github` 目录一并提交；`.openai/` 是 Sites 的托管配置，GitHub Pages 不需要它。
-3. 打开仓库 **Settings → Pages → Build and deployment → Source**，选择 **GitHub Actions**。
-4. 在 **Actions** 中运行部署工作流，或向 `main` 提交一次修改。工作流会运行 Python 生成 `dist/`，再发布该目录。
-5. 等待工作流成功，在 **Settings → Pages → Visit site** 打开网站，并核对手机布局和所有外链。首次发布可能需要几分钟。
-6. 将 `siteUrl` 改为正式地址并提交。今后修改资料并推送到 `main` 即可自动更新。
+仓库使用 GitHub 内置的分支发布：**Settings → Pages → Build and deployment → Source → Deploy from a branch**，分支选 **main**，目录选 **/(root)**。根目录的 `index.html` 是正式入口；根目录 `.nojekyll`、`robots.txt`、`sitemap.xml` 也由构建脚本生成。`siteUrl` 应填写正式主页地址。
 
-本地页面不代表已经发布到上述 GitHub 地址；GitHub Pages 需要完成仓库与发布设置。SSH 验证成功可以推送已有仓库，创建仓库和配置 Pages 仍需要网页操作或 API 授权。执行这些步骤不需要把 GitHub 密码交给助手。
+每次更新资料或样式后，在项目目录执行：
+
+```bash
+python3 scripts/build.py
+python3 scripts/check.py
+git add data scripts dist index.html .nojekyll robots.txt sitemap.xml SOURCES.md README.md .github
+git commit -m "Update academic homepage"
+git push origin main
+```
+
+提交前可用 `git diff --cached` 核对修改。源码、静态资源和生成页面需要一起提交；**只修改数据文件并推送，不会重新生成线上页面。** 仓库内的自定义工作流仅检查生成结果是否与数据一致，不负责部署。正式发布由 GitHub 内置的 `pages build and deployment` 完成，保留这一种发布方式即可。
+
+推送后等待内置发布任务成功，再通过 **Settings → Pages → Visit site** 打开网站，核对手机布局和外链。发布可能需要几分钟；如果页面仍旧，刷新浏览器缓存后重试。整个流程不需要把 GitHub 密码交给助手。
 
 ## 是否购买个人域名
 
