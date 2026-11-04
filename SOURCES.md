@@ -7,7 +7,7 @@ Verified 2026-11-04.
 - The homepage currently displays 17 entries. Explicit author-requested exclusions are recorded in data/publication-exclusions.json; the historical Scholar snapshot is preserved. Formal venue year is used for grouping.
 - Identity/group: https://github.com/gitlonglong. User confirmed PhD student at UESTC, GitHub gitlonglong, and public email lwsch5940@163.com.
 - User confirmed advisor Shuhang Gu: https://shuhanggu.github.io/. The group website https://diggers.ai/ is linked by UESTC’s official article https://news.uestc.edu.cn/info/1005/38639.htm.
-- Portrait is the photo from the user-supplied Scholar profile. Figure sources below are the authors’ official repositories.
+- Portrait is the photo from the user-supplied Scholar profile. Paper figures come from the authors’ official repositories or the user-provided paper PDFs; extraction pages and regions are recorded in data/figure-sources.json.
 - Descriptions are original summaries. Equal contribution is only marked when supported by Scholar or the authors’ repository. No citation statistics are reproduced.
 - Every displayed BibTeX entry was audited against official conference/publisher exports or publisher-deposited Crossref metadata; preprints use official arXiv BibTeX. Citation sources and findings are recorded in data/citation-audit.json. Unverified fields are omitted and citation keys are preserved.
 
@@ -25,26 +25,30 @@ Verified 2026-11-04.
   - https://github.com/CVL-UESTC/IDESplat
   - https://github.com/CVL-UESTC/RDVQ
   - https://cvpr.thecvf.com/Conferences/2026/Dates
+- 2026-02 / IEEE TPAMI / atd: Acceptance date verified in the first-page manuscript history of the user-provided final publisher PDF. First-page manuscript history distinguishes acceptance from publication on 3 March 2026.
+  - https://github.com/CVL-UESTC/Adaptive-Token-Dictionary
+  - https://doi.org/10.1109/TPAMI.2026.3669974
+  - Supplied publisher PDF: ATD_Improved_Transformer_With_Adaptive_Token_Dictionary_for_Image_Restoration.pdf, page 1: “accepted 19 February 2026.”
 - 2026-01 / ICLR 2026 / tvqrap, mvar: Coauthor Xingyu Zhou News explicitly dates TVQ&RAP acceptance January 2026; official MVAR README has a 2026-01-25 acceptance announcement.
   - https://zhouxingyu13.github.io/
   - https://github.com/CVL-UESTC/MVAR
+- 2025-05 / Pattern Recognition / fsa: Acceptance date verified in the first-page manuscript history of the user-provided final publisher PDF. First-page article history distinguishes acceptance from online availability on 7 June 2025 and final issue year 2026. BibTeX year remains 2026.
+  - https://doi.org/10.1016/j.patcog.2025.111899
+  - https://github.com/gitlonglong/Full-Range-Self-Attention
+  - Supplied publisher PDF: Leveraging negative correlation for Full-Range Self-Attention in Vision Transformers.pdf, page 1: “Accepted 22 May 2025”
+- 2025-05 / IEEE TGRS / pgnet: Acceptance date verified in the first-page manuscript history of the user-provided final publisher PDF. First-page manuscript history distinguishes acceptance from publication on 19 May 2025.
+  - https://doi.org/10.1109/TGRS.2025.3571066
+  - https://cs.gzu.edu.cn/_t2886/2025/0607/c16275a251964/page.htm
+  - Supplied publisher PDF: Prior_Information-Guided_Semi-Supervised_Semantic_Segmentation_of_Remote_Sensing_Images.pdf, page 1: “accepted 7 May 2025.”
 - 2025-02 / CVPR 2025 / pft: Coauthor Xingyu Zhou News explicitly dates PFT-SR acceptance February 2025. Display method name corrected to PFT as requested by the author; PFT-SR is the repository/coauthor-page label.
   - https://zhouxingyu13.github.io/
 - 2024-02 / CVPR 2024 / mocha: Official CVF proceedings confirm the paper’s acceptance/publication. The month is inferred from the official main-conference final-decision date, 27 February 2024; it is not a retrieved paper-specific acceptance-email date.
   - https://openaccess.thecvf.com/content/CVPR2024/html/Chen_MoCha-Stereo_Motif_Channel_Attention_Network_for_Stereo_Matching_CVPR_2024_paper.html
   - https://cvpr.thecvf.com/Conferences/2024/Dates
-- Acceptance month not established / IEEE TPAMI / atd: The authors’ official repository explicitly says the extended version is accepted by TPAMI. No reliable acceptance month was retrieved; March 2026 is a preprint/publication date and is not substituted. The available arXiv PDF was also inspected and contains no acceptance history.
-  - https://github.com/CVL-UESTC/Adaptive-Token-Dictionary
-  - https://doi.org/10.1109/TPAMI.2026.3669974
-- Acceptance month not established / Pattern Recognition / fsa: Publisher-registered DOI and author repository establish journal publication, but no reliable acceptance date was retrieved. Online publication in 2025 and issue year 2026 must not be treated as acceptance dates.
-  - https://doi.org/10.1016/j.patcog.2025.111899
-  - https://github.com/gitlonglong/Full-Range-Self-Attention
-- Acceptance month not established / IEEE TGRS / pgnet: Publisher-registered DOI establishes journal publication, but no reliable acceptance date was retrieved. Do not reuse the first-publication date as acceptance. Method acronym verified in the authors’ institution announcement dated 7 June 2025, which announces publication, not the acceptance date.
-  - https://doi.org/10.1109/TGRS.2025.3571066
-  - https://cs.gzu.edu.cn/_t2886/2025/0607/c16275a251964/page.htm
-- Acceptance month not established / IEEE TGRS / tanet: Publisher-registered DOI establishes the 2023 journal publication, but no reliable acceptance date was retrieved. The arXiv upload in January 2025 is not the acceptance date. The available arXiv PDF was also inspected and contains no acceptance history.
+- 2023-04 / IEEE TGRS / tanet: Acceptance date verified in the first-page manuscript history of the user-provided final publisher PDF. First-page manuscript history distinguishes acceptance from publication on 15 May 2023.
   - https://doi.org/10.1109/TGRS.2023.3276081
   - https://arxiv.org/abs/2501.07984
+  - Supplied publisher PDF: Threshold_Attention_Network_for_Semantic_Segmentation_of_Remote_Sensing_Images.pdf, page 1: “accepted 24 April 2023.”
 
 ## Progressive Focused Transformer for Image Restoration
 
@@ -54,6 +58,8 @@ Verified 2026-11-04.
 - https://api.crossref.org/works/10.1007/s11263-026-03053-1/transform/application/x-bibtex
 - https://doi.org/10.1007/s11263-026-03053-1
 - https://citation-needed.springer.com/v2/references/10.1007/s11263-026-03053-1?format=bibtex&flavour=citation
+- Figure: https://doi.org/10.1007/s11263-026-03053-1
+- Supplied PDF figure: Progressive Focused Transformer for Image Restoration.pdf, page 6, Figure 2.
 
 ## Advanced Pixel Diffusion Model with Guided Sparse Global Refinement
 
@@ -67,6 +73,8 @@ Verified 2026-11-04.
 - https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=CsVTBJoAAAAJ&pagesize=100&citation_for_view=CsVTBJoAAAAJ:8k81kl-MbHgC
 - https://arxiv.org/abs/2608.00562
 - https://arxiv.org/bibtex/2608.00562
+- Figure: https://arxiv.org/abs/2608.00562
+- Supplied PDF figure: Beyond Token-Level Cross-Entropy Fréchet Distributional Post-Training for Autoregressive Image Generation.pdf, page 3, Figure 2.
 
 ## Differentiable Vector Quantization for Rate-Distortion Optimization of Generative Image Compression
 
@@ -123,6 +131,8 @@ Verified 2026-11-04.
 - https://api.crossref.org/works/10.1016/j.patcog.2025.111899
 - https://api.crossref.org/works/10.1016/j.patcog.2025.111899/transform/application/x-bibtex
 - https://doi.org/10.1016/j.patcog.2025.111899
+- Figure: https://doi.org/10.1016/j.patcog.2025.111899
+- Supplied PDF figure: Leveraging negative correlation for Full-Range Self-Attention in Vision Transformers.pdf, page 4, Figure 2.
 
 ## MVAR: Visual Autoregressive Modeling with Scale and Spatial Markovian Conditioning
 
@@ -141,6 +151,8 @@ Verified 2026-11-04.
 - https://api.crossref.org/works/10.1016/j.engappai.2025.111979
 - https://api.crossref.org/works/10.1016/j.engappai.2025.111979/transform/application/x-bibtex
 - https://doi.org/10.1016/j.engappai.2025.111979
+- Figure: https://doi.org/10.1016/j.engappai.2025.111979
+- Supplied PDF figure: Rethinking low-light knowledge for pedestrian detection in nighttime conditions.pdf, page 3, Figure 2.
 
 ## Prior Information-Guided Semi-Supervised Semantic Segmentation of Remote Sensing Images
 
@@ -149,6 +161,8 @@ Verified 2026-11-04.
 - https://ieeexplore.ieee.org/abstract/document/11006720/
 - https://api.crossref.org/works/10.1109/tgrs.2025.3571066
 - https://api.crossref.org/works/10.1109/tgrs.2025.3571066/transform/application/x-bibtex
+- Figure: https://doi.org/10.1109/TGRS.2025.3571066
+- Supplied PDF figure: Prior_Information-Guided_Semi-Supervised_Semantic_Segmentation_of_Remote_Sensing_Images.pdf, page 4, Figure 2.
 
 ## Small Clips, Big Gains: Learning Long-Range Refocused Temporal Information for Video Super-Resolution
 
@@ -157,6 +171,8 @@ Verified 2026-11-04.
 - https://github.com/CVL-UESTC/LRTI-VSR
 - https://zhouxingyu13.github.io/
 - https://arxiv.org/bibtex/2505.02159
+- Figure: https://arxiv.org/abs/2505.02159
+- Supplied PDF figure: Small Clips, Big Gains Learning Long-Range Refocused Temporal Information for Video Super-Resolution.pdf, page 1, Figure 1.
 
 ## Progressive Focused Transformer for Single Image Super-Resolution
 
@@ -176,6 +192,8 @@ Verified 2026-11-04.
 - https://api.crossref.org/works/10.1016/j.knosys.2024.112032
 - https://api.crossref.org/works/10.1016/j.knosys.2024.112032/transform/application/x-bibtex
 - https://doi.org/10.1016/j.knosys.2024.112032
+- Figure: https://doi.org/10.1016/j.knosys.2024.112032
+- Supplied PDF figure: Multi-Dimensional Manifolds Consistency Regularization for semi-supervised remote sensing semantic segmentation.pdf, page 4, Figure 2.
 
 ## MoCha-Stereo: Motif Channel Attention Network for Stereo Matching
 
@@ -185,6 +203,8 @@ Verified 2026-11-04.
 - https://ieeexplore.ieee.org/abstract/document/10656914/
 - https://openaccess.thecvf.com/content/CVPR2024/html/Chen_MoCha-Stereo_Motif_Channel_Attention_Network_for_Stereo_Matching_CVPR_2024_paper.html
 - https://api.crossref.org/works/10.1109/cvpr52733.2024.02623
+- Figure: https://openaccess.thecvf.com/content/CVPR2024/html/Chen_MoCha-Stereo_Motif_Channel_Attention_Network_for_Stereo_Matching_CVPR_2024_paper.html
+- Supplied PDF figure: Chen_MoCha-Stereo_Motif_Channel_Attention_Network_for_Stereo_Matching_CVPR_2024_paper.pdf, page 3, Figure 3.
 
 ## Threshold Attention Network for Semantic Segmentation of Remote Sensing Images
 
@@ -193,4 +213,6 @@ Verified 2026-11-04.
 - https://api.crossref.org/works/10.1109/tgrs.2023.3276081
 - https://api.crossref.org/works/10.1109/tgrs.2023.3276081/transform/application/x-bibtex
 - https://doi.org/10.1109/TGRS.2023.3276081
+- Figure: https://doi.org/10.1109/TGRS.2023.3276081
+- Supplied PDF figure: Threshold_Attention_Network_for_Semantic_Segmentation_of_Remote_Sensing_Images.pdf, page 4, Figure 2.
 

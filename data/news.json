@@ -51,6 +51,28 @@
     "dateBasis": "conference_notification"
   },
   {
+    "date": "2026-02",
+    "paperIds": [
+      "atd"
+    ],
+    "venue": "IEEE TPAMI",
+    "labels": {
+      "atd": "ATD"
+    },
+    "sources": [
+      "https://github.com/CVL-UESTC/Adaptive-Token-Dictionary",
+      "https://doi.org/10.1109/TPAMI.2026.3669974"
+    ],
+    "evidenceNote": "Acceptance date verified in the first-page manuscript history of the user-provided final publisher PDF. First-page manuscript history distinguishes acceptance from publication on 3 March 2026.",
+    "dateBasis": "publisher_history",
+    "acceptanceDate": "2026-02-19",
+    "evidenceDocument": {
+      "fileName": "ATD_Improved_Transformer_With_Adaptive_Token_Dictionary_for_Image_Restoration.pdf",
+      "page": 1,
+      "quote": "accepted 19 February 2026."
+    }
+  },
+  {
     "date": "2026-01",
     "paperIds": [
       "tvqrap",
@@ -67,6 +89,50 @@
       "mvar": "MVAR"
     },
     "dateBasis": "author_announcement"
+  },
+  {
+    "date": "2025-05",
+    "paperIds": [
+      "fsa"
+    ],
+    "venue": "Pattern Recognition",
+    "labels": {
+      "fsa": "FSA"
+    },
+    "sources": [
+      "https://doi.org/10.1016/j.patcog.2025.111899",
+      "https://github.com/gitlonglong/Full-Range-Self-Attention"
+    ],
+    "evidenceNote": "Acceptance date verified in the first-page manuscript history of the user-provided final publisher PDF. First-page article history distinguishes acceptance from online availability on 7 June 2025 and final issue year 2026. BibTeX year remains 2026.",
+    "dateBasis": "publisher_history",
+    "acceptanceDate": "2025-05-22",
+    "evidenceDocument": {
+      "fileName": "Leveraging negative correlation for Full-Range Self-Attention in Vision Transformers.pdf",
+      "page": 1,
+      "quote": "Accepted 22 May 2025"
+    }
+  },
+  {
+    "date": "2025-05",
+    "paperIds": [
+      "pgnet"
+    ],
+    "venue": "IEEE TGRS",
+    "labels": {
+      "pgnet": "PGNet"
+    },
+    "sources": [
+      "https://doi.org/10.1109/TGRS.2025.3571066",
+      "https://cs.gzu.edu.cn/_t2886/2025/0607/c16275a251964/page.htm"
+    ],
+    "evidenceNote": "Acceptance date verified in the first-page manuscript history of the user-provided final publisher PDF. First-page manuscript history distinguishes acceptance from publication on 19 May 2025.",
+    "dateBasis": "publisher_history",
+    "acceptanceDate": "2025-05-07",
+    "evidenceDocument": {
+      "fileName": "Prior_Information-Guided_Semi-Supervised_Semantic_Segmentation_of_Remote_Sensing_Images.pdf",
+      "page": 1,
+      "quote": "accepted 7 May 2025."
+    }
   },
   {
     "date": "2025-02",
@@ -100,55 +166,7 @@
     "dateBasis": "conference_notification"
   },
   {
-    "date": null,
-    "paperIds": [
-      "atd"
-    ],
-    "venue": "IEEE TPAMI",
-    "labels": {
-      "atd": "ATD"
-    },
-    "sources": [
-      "https://github.com/CVL-UESTC/Adaptive-Token-Dictionary",
-      "https://doi.org/10.1109/TPAMI.2026.3669974"
-    ],
-    "evidenceNote": "The authors’ official repository explicitly says the extended version is accepted by TPAMI. No reliable acceptance month was retrieved; March 2026 is a preprint/publication date and is not substituted. The available arXiv PDF was also inspected and contains no acceptance history.",
-    "dateBasis": "unknown"
-  },
-  {
-    "date": null,
-    "paperIds": [
-      "fsa"
-    ],
-    "venue": "Pattern Recognition",
-    "labels": {
-      "fsa": "FSA"
-    },
-    "sources": [
-      "https://doi.org/10.1016/j.patcog.2025.111899",
-      "https://github.com/gitlonglong/Full-Range-Self-Attention"
-    ],
-    "evidenceNote": "Publisher-registered DOI and author repository establish journal publication, but no reliable acceptance date was retrieved. Online publication in 2025 and issue year 2026 must not be treated as acceptance dates.",
-    "dateBasis": "unknown"
-  },
-  {
-    "date": null,
-    "paperIds": [
-      "pgnet"
-    ],
-    "venue": "IEEE TGRS",
-    "labels": {
-      "pgnet": "PGNet"
-    },
-    "sources": [
-      "https://doi.org/10.1109/TGRS.2025.3571066",
-      "https://cs.gzu.edu.cn/_t2886/2025/0607/c16275a251964/page.htm"
-    ],
-    "evidenceNote": "Publisher-registered DOI establishes journal publication, but no reliable acceptance date was retrieved. Do not reuse the first-publication date as acceptance. Method acronym verified in the authors’ institution announcement dated 7 June 2025, which announces publication, not the acceptance date.",
-    "dateBasis": "unknown"
-  },
-  {
-    "date": null,
+    "date": "2023-04",
     "paperIds": [
       "tanet"
     ],
@@ -160,7 +178,13 @@
       "https://doi.org/10.1109/TGRS.2023.3276081",
       "https://arxiv.org/abs/2501.07984"
     ],
-    "evidenceNote": "Publisher-registered DOI establishes the 2023 journal publication, but no reliable acceptance date was retrieved. The arXiv upload in January 2025 is not the acceptance date. The available arXiv PDF was also inspected and contains no acceptance history.",
-    "dateBasis": "unknown"
+    "evidenceNote": "Acceptance date verified in the first-page manuscript history of the user-provided final publisher PDF. First-page manuscript history distinguishes acceptance from publication on 15 May 2023.",
+    "dateBasis": "publisher_history",
+    "acceptanceDate": "2023-04-24",
+    "evidenceDocument": {
+      "fileName": "Threshold_Attention_Network_for_Semantic_Segmentation_of_Remote_Sensing_Images.pdf",
+      "page": 1,
+      "quote": "accepted 24 April 2023."
+    }
   }
 ]

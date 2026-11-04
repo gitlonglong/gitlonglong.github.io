@@ -35,7 +35,7 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory dist
 | `dist/` | 可直接部署的静态网站 |
 | 根目录 `index.html` | GitHub Pages 的入口，引用 `dist/assets/` 下的资源 |
 
-照片可放在 `dist/assets/portrait.jpg`，并把 `photo` 填为 `assets/portrait.jpg`；简历同理放在 `dist/assets/cv.pdf`，`cv` 填为 `assets/cv.pdf`。两项为空时自动隐藏。当前头像来自本人 Scholar，论文配图来自作者官方仓库；来源见 `data/figure-sources.json`。没有真实配图的论文使用纯文字排版。
+照片可放在 `dist/assets/portrait.jpg`，并把 `photo` 填为 `assets/portrait.jpg`；简历同理放在 `dist/assets/cv.pdf`，`cv` 填为 `assets/cv.pdf`。两项为空时自动隐藏。当前头像来自本人 Scholar，17 篇论文均有真实配图，来自作者官方仓库或本人提供的论文 PDF；来源与提取位置见 `data/figure-sources.json`。
 
 布局样式在 `dist/assets/site.css`，交互在 `dist/assets/site.js`，页面结构在 `scripts/build.py`。更改姓名时也请同步更新 `dist/assets/favicon.svg`。
 
@@ -44,7 +44,7 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory dist
 当前已使用你确认的 **UESTC 博士生**身份、**lwsch5940@163.com** 邮箱和 **gitlonglong** 账号。公开资料来源与未核实信息见 `SOURCES.md`。
 
 - **已具备核心资料：** 姓名、身份、单位、公开邮箱、GitHub、Scholar、研究方向、本人头像及 17 篇论文；已按本人要求排除指定的人脸识别论文。
-- **推荐补充：** 更高分辨率头像、个人简历 PDF、其余论文的配图。
+- **推荐补充：** 更高分辨率头像、个人简历 PDF。
 - **可选内容：** 中文姓名、导师、教育经历、实习经历、获奖、学术服务和新闻动态。
 
 缺失信息先留空，不会用虚构经历或联系方式填充。不要把密码、访问令牌或其他私密信息写进资料文件。
@@ -63,7 +63,7 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory dist
 
 Publications 前的 **News** 来自 `data/news.json`，按本人选择展示 12 篇已接收论文，不把纯预印本写为已接收。每项包含接收月份 `date`（`YYYY-MM` 或 `null`）、关联论文 `paperIds`、显示简称 `labels`、会议／期刊 `venue` 和日期依据 `sources`、`dateBasis`。同月同会议的论文可以合为一条动态。
 
-有作者公告或出版社接收记录的月份直接显示；根据官方会议通知日期整理的月份标记 `†`，并提供说明。ATD、FSA、PGNet 和 TANet 直接列在同一 News 列表中，未核实的月份留空；LLKNet 和 MDMCR 仅保留在 Publications 中。不以出版日期或 arXiv 上传日期代替接收日期。收到本人确认的日期后可填写 `date` 并更新依据。
+所有 News 按年月倒序显示，不显示上标或日期脚注。ATD（2026-02-19）、FSA（2025-05-22）、PGNet（2025-05-07）、TANet（2023-04-24）的接收日期均已从本人提供的正式出版 PDF 第 1 页核实，页面只显示年月；原文和页码保留在 `evidenceDocument` 中。其余日期继续保留作者公告、出版社记录或官方会议通知日程等来源依据，不以出版日期或 arXiv 上传日期代替接收日期。LLKNet 和 MDMCR 仅保留在 Publications 中。
 
 ## BibTeX 与来源
 

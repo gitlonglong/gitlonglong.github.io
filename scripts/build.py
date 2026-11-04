@@ -59,7 +59,8 @@ def paper_html(p):
     fig = FIGURES.get(p['id'])
     visual = ''
     if fig:
-        visual = f'<a class="paper-visual" href="{url(p["paper"])}" target="_blank" rel="noopener noreferrer" aria-label="Read {e(p["title"])}"><img src="{url(fig["image"])}" alt="Figure from {e(p["title"])}" width="{fig["width"]}" height="{fig["height"]}" loading="lazy"></a>'
+        alt = fig.get('description', f'Figure from {p["title"]}')
+        visual = f'<a class="paper-visual" href="{url(p["paper"])}" target="_blank" rel="noopener noreferrer" aria-label="Read {e(p["title"])}"><img src="{url(fig["image"])}" alt="{e(alt)}" width="{fig["width"]}" height="{fig["height"]}" loading="lazy"></a>'
     else:
         visual = f'<div class="paper-aside" aria-hidden="true"><span>{e(p["venue"])}</span><span>{p["year"]}</span></div>'
     scholar_year = p.get('scholarYear', p['year'])
@@ -89,7 +90,6 @@ for group_id, title in [('lead', 'First / Co-first Author'), ('other', 'Other Co
     groups.append(f'<section class="authorship-group" data-authorship-group="{group_id}" aria-labelledby="authorship-{group_id}"><div class="authorship-heading"><h3 id="authorship-{group_id}">{title}</h3><span class="authorship-count">{len(group_papers)} papers</span></div>' + ''.join(years) + '</section>')
 papers_by_id = {p['id']: p for p in PAPERS}
 news_rows = []
-has_notification_dates = False
 for item in sorted(NEWS, key=lambda item: item['date'] or '', reverse=True):
     if item['date']:
         datetime.strptime(item['date'], '%Y-%m')
@@ -103,14 +103,10 @@ for item in sorted(NEWS, key=lambda item: item['date'] or '', reverse=True):
     ids = e(' '.join(item['paperIds']))
     sentence = f'{subject} {paper_links} {verb} accepted to {e(item["venue"])}.'
     if item['date']:
-        is_notification_date = item.get('dateBasis') == 'conference_notification'
-        has_notification_dates |= is_notification_date
-        marker = '<sup><a href="#news-date-note" aria-label="Month based on the official conference notification schedule">†</a></sup>' if is_notification_date else ''
-        news_rows.append(f'<li class="news-item" data-paper-ids="{ids}"><span class="news-date"><time datetime="{item["date"]}">[{item["date"]}]</time>{marker}</span><span>{sentence}</span></li>')
+        news_rows.append(f'<li class="news-item" data-paper-ids="{ids}"><span class="news-date"><time datetime="{item["date"]}">[{item["date"]}]</time></span><span>{sentence}</span></li>')
     else:
         news_rows.append(f'<li class="news-item" data-paper-ids="{ids}"><span class="news-date" aria-hidden="true"></span><span>{sentence}</span></li>')
-news_note = '<p class="news-note" id="news-date-note">† Month follows the conference’s official notification schedule.</p>' if has_notification_dates else ''
-news_html = '<section class="news" id="news" aria-labelledby="news-title"><h2 id="news-title">News</h2><ul class="news-list">' + ''.join(news_rows) + '</ul>' + news_note + '</section>' if NEWS else ''
+news_html = '<section class="news" id="news" aria-labelledby="news-title"><h2 id="news-title">News</h2><ul class="news-list">' + ''.join(news_rows) + '</ul></section>' if NEWS else ''
 news_nav = '<a href="#news">News</a>' if NEWS else ''
 links = ''
 if PROFILE.get('email'):
@@ -175,7 +171,7 @@ sources += '- Complete snapshot: 18 article rows, “Articles 1–18”, Show mo
 sources += f'- The homepage currently displays {len(PAPERS)} entries. Explicit author-requested exclusions are recorded in data/publication-exclusions.json; the historical Scholar snapshot is preserved. Formal venue year is used for grouping.\n'
 sources += '- Identity/group: https://github.com/gitlonglong. User confirmed PhD student at UESTC, GitHub gitlonglong, and public email lwsch5940@163.com.\n'
 sources += '- User confirmed advisor Shuhang Gu: https://shuhanggu.github.io/. The group website https://diggers.ai/ is linked by UESTC’s official article https://news.uestc.edu.cn/info/1005/38639.htm.\n'
-sources += '- Portrait is the photo from the user-supplied Scholar profile. Figure sources below are the authors’ official repositories.\n'
+sources += '- Portrait is the photo from the user-supplied Scholar profile. Paper figures come from the authors’ official repositories or the user-provided paper PDFs; extraction pages and regions are recorded in data/figure-sources.json.\n'
 sources += '- Descriptions are original summaries. Equal contribution is only marked when supported by Scholar or the authors’ repository. No citation statistics are reproduced.\n'
 sources += '- Every displayed BibTeX entry was audited against official conference/publisher exports or publisher-deposited Crossref metadata; preprints use official arXiv BibTeX. Citation sources and findings are recorded in data/citation-audit.json. Unverified fields are omitted and citation keys are preserved.\n\n'
 sources += '- Authorship groups use author order and verified equal-contribution marks; co-first authors share the leading author’s contribution group.\n\n'
@@ -183,11 +179,17 @@ sources += '## Acceptance news\n\n'
 for item in NEWS:
     sources += f'- {item["date"] or "Acceptance month not established"} / {item["venue"]} / {", ".join(item["paperIds"])}: {item["evidenceNote"]}\n'
     sources += ''.join(f'  - {source}\n' for source in item['sources'])
+    if item.get('evidenceDocument'):
+        doc = item['evidenceDocument']
+        sources += f'  - Supplied publisher PDF: {doc["fileName"]}, page {doc["page"]}: “{doc["quote"]}”\n'
 sources += '\n'
 for p in PAPERS:
     sources += f'## {p["title"]}\n\n' + '\n'.join(f'- {s}' for s in p['sources']) + '\n'
     if p['id'] in FIGURES:
-        sources += f'- Figure: {FIGURES[p["id"]]["source"]}\n'
+        figure = FIGURES[p['id']]
+        sources += f'- Figure: {figure["source"]}\n'
+        if figure.get('localSource'):
+            sources += f'- Supplied PDF figure: {figure["localSource"]}, page {figure["pdfPage"]}, Figure {figure["figureNumber"]}.\n'
     sources += '\n'
 (ROOT / 'SOURCES.md').write_text(sources)
 print(f'Built {OUT / "index.html"} with {len(PAPERS)} publications.')

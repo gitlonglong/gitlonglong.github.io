@@ -54,5 +54,158 @@
     "source": "https://github.com/CVL-UESTC/IET/blob/HEAD/figures/attention.png",
     "width": 800,
     "height": 216
+  },
+  {
+    "id": "pftv2",
+    "localSource": "Progressive Focused Transformer for Image Restoration.pdf",
+    "pdfPage": 6,
+    "figureNumber": "2",
+    "clipCoordinates": [
+      51,
+      54,
+      544,
+      381
+    ],
+    "source": "https://doi.org/10.1007/s11263-026-03053-1",
+    "description": "The overall architecture of PFTv2, including window-based and group-based Progressive Focused Attention.",
+    "image": "assets/papers/pftv2.webp",
+    "width": 1201,
+    "height": 797
+  },
+  {
+    "id": "fdloss",
+    "localSource": "Beyond Token-Level Cross-Entropy Fréchet Distributional Post-Training for Autoregressive Image Generation.pdf",
+    "pdfPage": 3,
+    "figureNumber": "2",
+    "clipCoordinates": [
+      53,
+      56,
+      555,
+      187
+    ],
+    "source": "https://arxiv.org/abs/2608.00562",
+    "description": "Overview of the dual-pass FD-loss post-training framework.",
+    "image": "assets/papers/fdloss.webp",
+    "width": 1201,
+    "height": 315
+  },
+  {
+    "id": "fsa",
+    "localSource": "Leveraging negative correlation for Full-Range Self-Attention in Vision Transformers.pdf",
+    "pdfPage": 4,
+    "figureNumber": "2",
+    "clipCoordinates": [
+      122,
+      53,
+      474,
+      170
+    ],
+    "source": "https://doi.org/10.1016/j.patcog.2025.111899",
+    "description": "Full-Range Self-Attention framework with bidirectional attention weight selection and attention redistribution connections.",
+    "image": "assets/papers/fsa.webp",
+    "width": 1201,
+    "height": 400
+  },
+  {
+    "id": "lrtivsr",
+    "localSource": "Small Clips, Big Gains Learning Long-Range Refocused Temporal Information for Video Super-Resolution.pdf",
+    "pdfPage": 1,
+    "figureNumber": "1",
+    "clipCoordinates": [
+      310,
+      241,
+      556,
+      405
+    ],
+    "source": "https://arxiv.org/abs/2505.02159",
+    "description": "Pipeline of the truncated-short-video training strategy for learning long-range temporal information.",
+    "image": "assets/papers/lrtivsr.webp",
+    "width": 1201,
+    "height": 801
+  },
+  {
+    "id": "llknet",
+    "image": "assets/papers/llknet.webp",
+    "source": "https://doi.org/10.1016/j.engappai.2025.111979",
+    "width": 1201,
+    "height": 462,
+    "localSource": "Rethinking low-light knowledge for pedestrian detection in nighttime conditions.pdf",
+    "pdfPage": 3,
+    "clipCoordinates": [
+      94,
+      53,
+      500,
+      209
+    ],
+    "description": "Overall structure of LLKNet.",
+    "figureNumber": "2"
+  },
+  {
+    "id": "pgnet",
+    "image": "assets/papers/pgnet.webp",
+    "source": "https://doi.org/10.1109/TGRS.2025.3571066",
+    "width": 1201,
+    "height": 602,
+    "localSource": "Prior_Information-Guided_Semi-Supervised_Semantic_Segmentation_of_Remote_Sensing_Images.pdf",
+    "pdfPage": 4,
+    "clipCoordinates": [
+      61,
+      54,
+      550,
+      299
+    ],
+    "description": "Overall architecture of PGNet, including prior-feature guidance and prior-edge extraction.",
+    "figureNumber": "2"
+  },
+  {
+    "id": "mdmcr",
+    "image": "assets/papers/mdmcr.webp",
+    "source": "https://doi.org/10.1016/j.knosys.2024.112032",
+    "width": 1201,
+    "height": 735,
+    "localSource": "Multi-Dimensional Manifolds Consistency Regularization for semi-supervised remote sensing semantic segmentation.pdf",
+    "pdfPage": 4,
+    "clipCoordinates": [
+      79,
+      52,
+      517,
+      320
+    ],
+    "description": "Overall Multi-Dimensional Manifolds Consistency Regularization framework.",
+    "figureNumber": "2"
+  },
+  {
+    "id": "mocha",
+    "image": "assets/papers/mocha.webp",
+    "source": "https://openaccess.thecvf.com/content/CVPR2024/html/Chen_MoCha-Stereo_Motif_Channel_Attention_Network_for_Stereo_Matching_CVPR_2024_paper.html",
+    "width": 1201,
+    "height": 464,
+    "localSource": "Chen_MoCha-Stereo_Motif_Channel_Attention_Network_for_Stereo_Matching_CVPR_2024_paper.pdf",
+    "pdfPage": 3,
+    "clipCoordinates": [
+      49,
+      70,
+      547,
+      262
+    ],
+    "description": "Overview of MoCha-Stereo, including motif-channel correlation and reconstruction-error motif penalty.",
+    "figureNumber": "3"
+  },
+  {
+    "id": "tanet",
+    "image": "assets/papers/tanet.webp",
+    "source": "https://doi.org/10.1109/TGRS.2023.3276081",
+    "width": 1201,
+    "height": 305,
+    "localSource": "Threshold_Attention_Network_for_Semantic_Segmentation_of_Remote_Sensing_Images.pdf",
+    "pdfPage": 4,
+    "clipCoordinates": [
+      100,
+      52,
+      511,
+      156
+    ],
+    "description": "TANet network architecture with AFEM and TAPP modules.",
+    "figureNumber": "2"
   }
 ]
